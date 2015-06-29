@@ -1,0 +1,25 @@
+<!DOCTYPE HTML> 
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<h:outputStylesheet name="resources/css/style.css" library="css" />	
+</h:head> 
+<body> 
+<div class="log">
+
+	 		<h:form>
+	 			<h:outputText value="Login" styleClass="txt" />
+	 			<br />
+	 			<h:outputText value="Password" styleClass="txt" />
+	 			<h:inputText id="login" value="#{login.name}"
+	 				required="true" requiredMessage="Saisir un nom" />
+	 			<h:commandButton id="submit" action="#{login.valide}"
+	 				value="Valider" />
+	 		</h:form>
+</div>
+</body> 
+</html>

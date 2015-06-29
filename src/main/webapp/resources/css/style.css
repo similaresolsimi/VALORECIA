@@ -1,0 +1,42 @@
+@CHARSET "ISO-8859-1";
+
+.log {
+	border : solid;
+	border-size: 1px; 
+	border-radius: 15px;
+	background-color: #FFFFFF;
+	width: 30%;
+}
+
+.edit {
+	border : solid;
+	border-size: 1px; 
+	background-color: #FFFFFF;
+	width: 20%;
+	margin: 10 px;
+}
+
+.logo {
+	height: 60%;
+	width: 60%;
+}
+
+.txt{
+	font-family: cursive;
+	font:15px;
+}
+
+.error{
+	color: red;
+}
+
+.bodylogin{
+	background-image: url("../resources/img/url.jpg");
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: top center ;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	opacity: 0.6;
+}
