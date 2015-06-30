@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.site.utils;
+package dao;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;

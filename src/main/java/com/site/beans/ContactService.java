@@ -7,6 +7,11 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.inject.Inject;
+
+import dao.ContactDaoInterface;
 
 /**
  * @author carole
@@ -15,6 +20,9 @@ import javax.ejb.Stateless;
 @Stateless
 public class ContactService implements ContactServiceInterface {
 
+	@Inject
+	private ContactDaoInterface contactDao;
+
 	@Override
 	public Contact createContact(String name,
 			String surname,String mail,String telephone,String message,
@@ -22,25 +30,33 @@ public class ContactService implements ContactServiceInterface {
 
 		Contact contact = new Contact( name, surname, mail, telephone, message,
 				sendMessage, dateMessage, contactOrigine);
-
-		return null;
+		contactDao.persist(contact);
+		return contact;
 	}
 
 	@Override
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public ArrayList<Contact> getAllContact() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Contact> result = new ArrayList<>();
+		for (Contact contact : contactDao.findAll()) {
+			result.add(contact);
+		}
+		return result;
 	}
 
 	@Override
-	public Contact getContact(long ContactId) {
-		// TODO Auto-generated method stub
-		return null;
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public Contact getContact(long contactId) {
+		return contactDao.findById(contactId);
 	}
+
 
 	/**
-	 *
+	 * This method is used for Junit testing only.
+	 * @param contactDao the contactDao to set
 	 */
-
+	void setAnimalDao(ContactDaoInterface animalDao) {
+		this.contactDao = animalDao;
+	}
 
 }
