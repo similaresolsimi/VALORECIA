@@ -1,7 +1,7 @@
 /**
  * 
  */
-package dao;
+package com.site.dao;
 
 import java.util.Collection;
 

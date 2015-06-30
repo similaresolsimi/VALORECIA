@@ -1,7 +1,7 @@
 /**
  *
  */
-package dao;
+package com.site.dao;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 
-import com.site.beans.Contact;
+import com.site.obj.Contact;
 
 /**
  * @author carole

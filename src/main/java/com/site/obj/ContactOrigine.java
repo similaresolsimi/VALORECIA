@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.site.beans;
+package com.site.obj;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.site.beans;
+package com.site.obj;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
-import dao.ContactDaoInterface;
+import com.site.dao.ContactDaoInterface;
 
 /**
  * @author carole
