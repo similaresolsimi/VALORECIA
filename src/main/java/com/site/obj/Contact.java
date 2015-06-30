@@ -46,6 +46,7 @@ public class Contact {
 	private Boolean sendMessage;
 	@XmlAttribute
 	private Date dateMessage;
+
 	@ManyToOne
 	@XmlElement(required = true)
 	private ContactOrigine contactOrigine;
@@ -146,6 +147,18 @@ public class Contact {
 		this.contactOrigine = contactOrigine;
 	}
 
+	/**
+	 * @return the dateMessage
+	 */
+	public Date getDateMessage() {
+		return dateMessage;
+	}
 
+	/**
+	 * @param dateMessage the dateMessage to set
+	 */
+	public void setDateMessage(Date dateMessage) {
+		this.dateMessage = dateMessage;
+	}
 
 }
