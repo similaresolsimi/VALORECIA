@@ -3,24 +3,64 @@
  */
 package com.site.beans;
 
+import java.sql.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * @author carole
  *
  */
+@Entity(name="Contact")
+@NamedQuery(name="Contact.findAll", query="SELECT a FROM Contact a")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class Contact {
 
-	/**
-	 *
-	 */
+	@Id
+	@GeneratedValue
+	@XmlAttribute(required = true)
+	@Column(unique=true)
+	private Long ContactId;
+	@XmlAttribute(required = true)
 	private String name;
+	@XmlAttribute
 	private String surname;
+	@XmlAttribute
 	private String mail;
+	@XmlAttribute
 	private String telephone;
+	@XmlAttribute
 	private String message;
-	private Boolean SendMessage;
+	@XmlAttribute
+	private Boolean sendMessage;
+	@XmlAttribute
+	private Date dateMessage;
+	@ManyToOne
+	@XmlElement(required = true)
+	private ContactOrigine contactOrigine;
+
 
 	public Contact() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Long getContactId() {
+		return ContactId;
+	}
+
+	public void setContactId(Long ContactId) {
+		this.ContactId = ContactId;
 	}
 
 	public String getName() {
@@ -67,14 +107,28 @@ public class Contact {
 	 * @return the sendMessage
 	 */
 	public Boolean getSendMessage() {
-		return SendMessage;
+		return sendMessage;
 	}
 
 	/**
 	 * @param sendMessage the sendMessage to set
 	 */
 	public void setSendMessage(Boolean sendMessage) {
-		SendMessage = sendMessage;
+		this.sendMessage = sendMessage;
+	}
+
+	/**
+	 * @return the contactOrigine
+	 */
+	public ContactOrigine getContactOrigine() {
+		return contactOrigine;
+	}
+
+	/**
+	 * @param contactOrigine the contactOrigine to set
+	 */
+	public void setContactOrigine(ContactOrigine contactOrigine) {
+		this.contactOrigine = contactOrigine;
 	}
 
 

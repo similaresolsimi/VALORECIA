@@ -26,6 +26,8 @@
       <!-- The datasource is deployed as WEB-INF/valorecia-ds.xml, you
          can find it in the source at src/main/webapp/WEB-INF/valorecia-ds.xml -->
       <jta-data-source>java:jboss/datasources/valoreciaDS</jta-data-source>
+      <class>com.site.beans.Contact</class>
+      <class>com.site.beans.ContactOrigine</class>
       <properties>
          <!-- Properties for Hibernate -->
          <property name="hibernate.hbm2ddl.auto" value="create-drop" />
