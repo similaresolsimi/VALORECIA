@@ -8,6 +8,22 @@
 	width: 30%;
 }
 
+.logconsole {
+	border : solid;
+	border-size: 1px; 
+	border-radius: 15px;
+	background-color: #FFFFFF;
+	margin: 30px;
+	width: 60%;
+}
+
+.imgconsole {
+	display: inline-block;
+	height: 150px;
+	width: 150px;
+	margin: 10px;
+}
+
 .edit {
 	border : solid;
 	border-size: 1px; 
