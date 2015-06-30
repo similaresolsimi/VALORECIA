@@ -3,6 +3,7 @@
  */
 package com.site.beans;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.ejb.Stateless;
@@ -15,8 +16,13 @@ import javax.ejb.Stateless;
 public class ContactService implements ContactServiceInterface {
 
 	@Override
-	public Contact createContact() {
-		// TODO Auto-generated method stub
+	public Contact createContact(String name,
+			String surname,String mail,String telephone,String message,
+			Boolean sendMessage,Date dateMessage,ContactOrigine contactOrigine) {
+
+		Contact contact = new Contact( name, surname, mail, telephone, message,
+				sendMessage, dateMessage, contactOrigine);
+
 		return null;
 	}
 

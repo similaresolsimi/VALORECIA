@@ -2,6 +2,7 @@
  *
  */
 package com.site.beans;
+import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +11,9 @@ import java.util.ArrayList;
  */
 public interface ContactServiceInterface {
 
-	public Contact createContact();
+	public Contact createContact(String name,
+			String surname,String mail,String telephone,String message,
+			Boolean sendMessage,Date dateMessage,ContactOrigine contactOrigine);
 
 	/**
 	 * @return list of all Contact request.

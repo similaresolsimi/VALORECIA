@@ -55,6 +55,21 @@ public class Contact {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Contact(String name,
+			String surname,String mail,String telephone,String message,
+			Boolean sendMessage,Date dateMessage,ContactOrigine contactOrigine)
+	{
+		this.name = name;
+		this.surname=surname;
+		this.mail=mail;
+		this.telephone=telephone;
+		this.message=message;
+		this.sendMessage=sendMessage;
+		this.dateMessage=dateMessage;
+		this.contactOrigine=contactOrigine;
+
+	}
+
 	public Long getContactId() {
 		return ContactId;
 	}
