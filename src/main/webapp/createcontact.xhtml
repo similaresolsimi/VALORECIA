@@ -51,7 +51,7 @@
 				<h:outputLabel for="contactorigine">
 					<h:outputText id="contactorigineLabel" value="#{msgs.contactorigine}" />
 				</h:outputLabel>
-				<h:selectOneMenu id="contactorigine" value="#{contactJsf.contactOrigineId}"
+				<h:selectOneMenu id="contact" value="#{contactJsf.contactOrigineId}"
 					required="true" requiredMessage="#{msgs.mandatory}">
 					<f:selectItem itemValue="#{null}"
 						itemLabel="#{msgs.animalspeciesdefault}" />
@@ -61,20 +61,6 @@
 						value="#{contactOrigineJsf.allContactOrigine}" />
 				</h:selectOneMenu>
 				<h:message style="color: red" for="ContactOrigine" />
-
-				<h:outputLabel for="enclosure">
-					<h:outputText id="enclosureLabel" value="#{msgs.animalenclosure}" />
-				</h:outputLabel>
-				<h:selectOneMenu id="enclosure" value="#{contactJsf.message}"
-					required="true" requiredMessage="#{msgs.mandatory}">
-					<f:selectItem itemValue="#{null}"
-						itemLabel="#{msgs.animalenclosuredefault}" />
-					<f:selectItem itemValue="aviary" itemLabel="Aviary" />
-					<f:selectItem itemValue="vivarium" itemLabel="Vivarium" />
-					<f:selectItem itemValue="pool" itemLabel="Pool" />
-					<f:selectItem itemValue="bigcage" itemLabel="Big cage" />
-					<f:selectItem itemValue="smallcage" itemLabel="Small cage" />
-				</h:selectOneMenu>
 				<h:message style="color: red" for="enclosure" />
 			</h:panelGrid>
 

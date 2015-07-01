@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import com.site.obj.Contact;
 import com.site.obj.ContactServiceInterface;
 
-@Path("/animal")
+@Path("/contact")
 public class ContactRestRessource {
 
 	@Inject
