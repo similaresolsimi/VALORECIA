@@ -3,11 +3,11 @@
  */
 package com.site.obj;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.xml.bind.annotation.XmlAttribute;
 
 /**
  * @author carole
@@ -22,11 +22,20 @@ public class ContactOrigine {
 	 */
 	@Id
 	@GeneratedValue
-	@Column(unique=true)
+	//@Column(unique=true)
+	@XmlAttribute(required = true)
 	private Long contactOrigineId;
-
+	@XmlAttribute
 	private String contactOrigine;
 
+	public ContactOrigine() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public ContactOrigine(Long contactOrigineId,String ContactOrigine) {
+		this.contactOrigineId=contactOrigineId;
+		this.contactOrigine =ContactOrigine;
+	}
 	/**
 	 * @return the contactOrigineId
 	 */
@@ -39,12 +48,6 @@ public class ContactOrigine {
 	 */
 	public void setContactOrigineId(Long contactOrigineId) {
 		this.contactOrigineId = contactOrigineId;
-	}
-
-
-
-	public ContactOrigine() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
