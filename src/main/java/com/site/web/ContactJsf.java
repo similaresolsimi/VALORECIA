@@ -13,6 +13,7 @@ import javax.inject.Inject;
 
 import com.site.obj.Contact;
 import com.site.obj.ContactOrigine;
+import com.site.obj.ContactOrigineServiceInterface;
 import com.site.obj.ContactServiceInterface;
 
 
@@ -23,10 +24,18 @@ public class ContactJsf {
 	@Inject
 	private ContactServiceInterface contactService;
 	@Inject
-	private ContactOrigine speciesService;
+	private ContactOrigineServiceInterface contactOrigineService;
 
 	//private Long ContactId;
 	private String name;
+	private String surname;
+	private String mail;
+	private String telephone;
+	private String message;
+	private Boolean sendMessage;
+	private Date dateMessage;
+	private ContactOrigine contactOrigine;
+	private Long contactOrigineId;
 	/**
 	 * @return the contactService
 	 */
@@ -153,14 +162,6 @@ public class ContactJsf {
 		this.contactOrigine = contactOrigine;
 	}
 
-	private String surname;
-	private String mail;
-	private String telephone;
-	private String message;
-	private Boolean sendMessage;
-	private Date dateMessage;
-	private ContactOrigine contactOrigine;
-	private Long contactOrigineId;
 	/**
 	 * @return the contactOrigineId
 	 */
@@ -229,8 +230,8 @@ public class ContactJsf {
 	}
 
 	public String create() {
-		ContactOrigine speciesFromDao = speciesService.getFromId(speciesId);
-		contactService.createContact(matricule, age, birthPlace, speciesFromDao, enclosure);
+		ContactOrigine ContactOrigineFromDao = contactOrigineService.getContactOrigine(contactOrigineId);
+		contactService.createContact( name, surname, mail, telephone, message, sendMessage, dateMessage, ContactOrigineFromDao);
 		return "create";
 	}
 

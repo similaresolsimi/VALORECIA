@@ -22,8 +22,8 @@ public interface ContactServiceInterface {
 	public ArrayList<Contact> getAllContact();
 
 	/**
-	 * @param idAnimal a long the animal's id.
-	 * @return teh Animal
+	 * @param ContactId a long the ContactId.
+	 * @return the ContactId
 	 */
 	public Contact getContact(long ContactId);
 

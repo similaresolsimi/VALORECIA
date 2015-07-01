@@ -27,6 +27,14 @@ public class ContactOrigine {
 
 	private String contactOrigine;
 
+	public ContactOrigine() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public ContactOrigine(Long contactOrigineId,String ContactOrigine) {
+		this.contactOrigineId=contactOrigineId;
+		this.contactOrigine =ContactOrigine;
+	}
 	/**
 	 * @return the contactOrigineId
 	 */
@@ -39,12 +47,6 @@ public class ContactOrigine {
 	 */
 	public void setContactOrigineId(Long contactOrigineId) {
 		this.contactOrigineId = contactOrigineId;
-	}
-
-
-
-	public ContactOrigine() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

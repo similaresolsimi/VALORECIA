@@ -55,8 +55,8 @@ public class ContactService implements ContactServiceInterface {
 	 * This method is used for Junit testing only.
 	 * @param contactDao the contactDao to set
 	 */
-	void setAnimalDao(ContactDaoInterface animalDao) {
-		this.contactDao = animalDao;
+	void setContactDao(ContactDaoInterface contactDao) {
+		this.contactDao = contactDao;
 	}
 
 }
