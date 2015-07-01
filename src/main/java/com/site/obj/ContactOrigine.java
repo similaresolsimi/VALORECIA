@@ -3,11 +3,11 @@
  */
 package com.site.obj;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.xml.bind.annotation.XmlAttribute;
 
 /**
  * @author carole
@@ -22,9 +22,10 @@ public class ContactOrigine {
 	 */
 	@Id
 	@GeneratedValue
-	@Column(unique=true)
+	//@Column(unique=true)
+	@XmlAttribute(required = true)
 	private Long contactOrigineId;
-
+	@XmlAttribute
 	private String contactOrigine;
 
 	public ContactOrigine() {

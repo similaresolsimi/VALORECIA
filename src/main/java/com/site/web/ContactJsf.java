@@ -27,12 +27,12 @@ public class ContactJsf {
 	private ContactOrigineServiceInterface contactOrigineService;
 
 	//private Long ContactId;
-	private String name;
-	private String surname;
+	private String Nom;
+	private String Prenom;
 	private String mail;
 	private String telephone;
 	private String message;
-	private Boolean sendMessage;
+	private Boolean copymessage;
 	private Date dateMessage;
 	private ContactOrigine contactOrigine;
 	private Long contactOrigineId;
@@ -51,31 +51,31 @@ public class ContactJsf {
 	}
 
 	/**
-	 * @return the name
+	 * @return the Nom
 	 */
-	public String getName() {
-		return name;
+	public String getNom() {
+		return Nom;
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param Nom the Nom to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setNom(String nom) {
+		this.Nom = nom;
 	}
 
 	/**
-	 * @return the surname
+	 * @return the Prenom
 	 */
-	public String getSurname() {
-		return surname;
+	public String getPrenom() {
+		return Prenom;
 	}
 
 	/**
-	 * @param surname the surname to set
+	 * @param Prenom the Prenom to set
 	 */
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setPrenom(String Prenom) {
+		this.Prenom = Prenom;
 	}
 
 	/**
@@ -121,17 +121,17 @@ public class ContactJsf {
 	}
 
 	/**
-	 * @return the sendMessage
+	 * @return the copymessage
 	 */
-	public Boolean getSendMessage() {
-		return sendMessage;
+	public Boolean getcopymessage() {
+		return copymessage;
 	}
 
 	/**
-	 * @param sendMessage the sendMessage to set
+	 * @param copymessage the copymessage to set
 	 */
-	public void setSendMessage(Boolean sendMessage) {
-		this.sendMessage = sendMessage;
+	public void setSendMessage(Boolean copymessage) {
+		this.copymessage = copymessage;
 	}
 
 	/**
@@ -187,12 +187,12 @@ public class ContactJsf {
 		Contact contactFromList = (Contact) dataTable.getRowData();
 		if (contactFromList != null) {
 			// Set animal's properties to be displayed.
-			setName(contactFromList.getName());
-			setSurname(contactFromList.getSurname());
+			setNom(contactFromList.getNom());
+			setPrenom(contactFromList.getPrenom());
 			setMail(contactFromList.getMail());
 			setTelephone(contactFromList.getTelephone());
 			setMessage(contactFromList.getMessage());
-			setSendMessage(contactFromList.getSendMessage());
+			setSendMessage(contactFromList.getcopymessage());
 			setDateMessage(contactFromList.getDateMessage());
 			setContactOrigineId(contactFromList.getContactOrigine().getContactOrigineId());
 		}
@@ -231,7 +231,7 @@ public class ContactJsf {
 
 	public String create() {
 		ContactOrigine ContactOrigineFromDao = contactOrigineService.getContactOrigine(contactOrigineId);
-		contactService.createContact( name, surname, mail, telephone, message, sendMessage, dateMessage, ContactOrigineFromDao);
+		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage, dateMessage, ContactOrigineFromDao);
 		return "create";
 	}
 

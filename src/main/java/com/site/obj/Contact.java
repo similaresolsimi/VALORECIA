@@ -33,9 +33,9 @@ public class Contact {
 	@Column(unique=true)
 	private Long ContactId;
 	@XmlAttribute(required = true)
-	private String name;
+	private String nom;
 	@XmlAttribute
-	private String surname;
+	private String prenom;
 	@XmlAttribute
 	private String mail;
 	@XmlAttribute
@@ -43,7 +43,7 @@ public class Contact {
 	@XmlAttribute
 	private String message;
 	@XmlAttribute
-	private Boolean sendMessage;
+	private Boolean copymessage;
 	@XmlAttribute
 	private Date dateMessage;
 
@@ -56,16 +56,16 @@ public class Contact {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Contact(String name,
-			String surname,String mail,String telephone,String message,
-			Boolean sendMessage,Date dateMessage,ContactOrigine contactOrigine)
+	public Contact(String nom,
+			String prenom,String mail,String telephone,String message,
+			Boolean copymessage,Date dateMessage,ContactOrigine contactOrigine)
 	{
-		this.name = name;
-		this.surname=surname;
+		this.nom = nom;
+		this.prenom=prenom;
 		this.mail=mail;
 		this.telephone=telephone;
 		this.message=message;
-		this.sendMessage=sendMessage;
+		this.copymessage=copymessage;
 		this.dateMessage=dateMessage;
 		this.contactOrigine=contactOrigine;
 
@@ -79,20 +79,20 @@ public class Contact {
 		this.ContactId = ContactId;
 	}
 
-	public String getName() {
-		return name;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
-	public String getSurname() {
-		return surname;
+	public String getPrenom() {
+		return prenom;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
 	public String getMail() {
@@ -120,17 +120,17 @@ public class Contact {
 	}
 
 	/**
-	 * @return the sendMessage
+	 * @return the copymessage
 	 */
-	public Boolean getSendMessage() {
-		return sendMessage;
+	public Boolean getcopymessage() {
+		return copymessage;
 	}
 
 	/**
-	 * @param sendMessage the sendMessage to set
+	 * @param copymessage the copymessage to set
 	 */
-	public void setSendMessage(Boolean sendMessage) {
-		this.sendMessage = sendMessage;
+	public void setSendMessage(Boolean copymessage) {
+		this.copymessage = copymessage;
 	}
 
 	/**
