@@ -1,6 +1,8 @@
 @CHARSET "ISO-8859-1";
 
-
+.menubar{
+	background-color: #c0c0c0;
+}
 .pic {
         margin-bottom: -4px;
         margin-right: 2px;
@@ -12,7 +14,7 @@
 
 body{
 	background-color: #ebebeb;
-	font : 13px/20px Arial,Helvetica,sans-serif;
+	font : 11px/18px Arial,Helvetica,sans-serif;
 }
 .log {
 	border : solid;
@@ -196,10 +198,9 @@ body{
 
 .main {
 	display : inline-block;
-	width: 50%;
+	width: 60%;
 	height : 100%;
 	box-shadow: 6px 6px 8px #aaa;
-	background-color: #c0c0c0;
 }
 
 .imgbandeau{
@@ -230,7 +231,6 @@ body{
 
 .bandeaumenu{
 	display : inline-block;
-	background-color: #F7F7F9;
 	width: 100%;
 	height : 10px;
 	margin :0px;
@@ -252,40 +252,3 @@ body{
 	height : 36px;
 }
 
-
-
-#btl-content ul li a:hover{
-	color:#7BA428 !important;
-	text-decoration: underline!important;
-	background-color: transparent!important;
-	
-}
-#btl-content > .btl-content-block{
-	position:absolute!important;
-	z-index:9999;
-}
-#btl-content #btl-content-login{
-	width:350px;
-}
-
-#btl-content-registration{
-	min-width:350px;
-}
-.btl-note,#register-link{
-	padding:18px 0px;
-}
-
- #btl-content-login .btl-input{
-	float:right;
-}
-#btl-content-login .spacer{
-	height:14px;
-}
-
-#btl-content div.btl-buttonsubmit{
-	border-top: 1px dotted #c4c4c4;
-}
-#btl-content #btl-content-login .btl-label {
-	line-height:38px;
-	min-width: 0px!important;
-}
