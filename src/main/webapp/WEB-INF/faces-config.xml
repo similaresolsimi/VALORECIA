@@ -24,7 +24,7 @@
  </navigation-rule>
  <application>
   <resource-bundle>
-   <base-name>javax.faces.Messages</base-name>
+   <base-name>messages.messages</base-name>
    <var>msgs</var>
   </resource-bundle>
  </application>
