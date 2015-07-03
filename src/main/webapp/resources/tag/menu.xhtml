@@ -14,13 +14,13 @@
 <cc:interface>
 			<cc:attribute name="menu" />
 	</cc:interface>
-<cc:implementation>
+<cc:implementation >
 
 <h:form>  
     <p:growl id="messages"/>
  
     <p:menubar>
-        <p:submenu label="Menu 1">
+        <p:submenu label="Qui sommes nous ?">
             <p:submenu label="Ss Menu 1.1" >
                 <p:menuitem value="Ss Menu 1.1.1" url="#" />
                 <p:menuitem value="Ss Menu 1.1.2" url="#" />
@@ -31,7 +31,29 @@
             <p:menuitem value="Ss Menu 1.3" url="#" />
         </p:submenu>
  
-        <p:submenu label="Menu 2">
+        <p:submenu label="Nos prestations">
+            <p:submenu label="Ss Menu 2.1" >
+                <p:menuitem value="Ss Menu 2.1.1" url="#" />
+                <p:menuitem value="Ss Menu 2.1.2" url="#" />
+            </p:submenu>
+            
+            <p:menuitem value="Ss Menu 2.2" url="#" />
+            <p:separator />
+            <p:menuitem value="Ss Menu 2.3" url="#" />
+        </p:submenu>
+        
+        <p:submenu label="Nos domaines d'expertises">
+            <p:submenu label="Ss Menu 2.1" >
+                <p:menuitem value="Ss Menu 2.1.1" url="#" />
+                <p:menuitem value="Ss Menu 2.1.2" url="#" />
+            </p:submenu>
+            
+            <p:menuitem value="Ss Menu 2.2" url="#" />
+            <p:separator />
+            <p:menuitem value="Ss Menu 2.3" url="#" />
+        </p:submenu>
+        
+        <p:submenu label="Notre actualité">
             <p:submenu label="Ss Menu 2.1" >
                 <p:menuitem value="Ss Menu 2.1.1" url="#" />
                 <p:menuitem value="Ss Menu 2.1.2" url="#" />
@@ -42,7 +64,7 @@
             <p:menuitem value="Ss Menu 2.3" url="#" />
         </p:submenu>
  
-        <p:menuitem value="Quit" url="http://www.primefaces.org" />
+        
  
         <f:facet name="options">
             <p:inputText style="margin-right:10px" placeholder="Rechercher"/>
