@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<title>Not present in rendered output</title>
+</head>
+<body>
+<composite:interface>
+	
+</composite:interface>
+<composite:implementation>
+	<h:form id="formContactRequest">
+					<h:outputText value="#{msgs.nom}" styleClass="txt" />
+					<h:inputText id="nom" value="#{contactJsf.nom}" required="true"
+					requiredMessage="#{msgs.champobligatoire}" />
+					<br />
+					<h:outputText value="#{msgs.prenom}" styleClass="txt" />
+					<h:inputText id="prenom" value="#{contactJsf.prenom}" required="true"
+					requiredMessage="#{msgs.champobligatoire}" />
+					<br />
+					<h:outputText value="#{msgs.mail}"    styleClass="txt" />
+					<h:inputText id="mail" value="#{contactJsf.mail}" required="true"
+					requiredMessage="#{msgs.champobligatoire}" />
+					<br />
+					<h:outputText value="#{msgs.telephone}"    styleClass="txt" />
+					<h:inputText id="telephone" value="#{contactJsf.telephone}" required="true"
+					requiredMessage="#{msgs.champobligatoire}" />
+					<br/>
+					<h:outputText value="#{msgs.contactorigine}"    styleClass="txt" />
+					<h:selectOneMenu  value="#{contactJsf.contactOrigineId}">
+						<f:selectItems value="#{contactOrigineJsf.allContactOrigine}"/>
+					</h:selectOneMenu>
+					<br/>
+<!-- 					<pou:selectOneMenu value="#{rechercheTechnicien.nomFamille}" onchange="submit()" valueChangeListener="#{rechercheTechnicien.remplirMarqueCombo(e)}" styleClass="combo1"> -->
+<!--                         <f:selectItems value="#{familleClassBean.familleItem}"/> -->
+<!--                     </pou:selectOneMenu> -->
+                    <br/>            
+					<h:outputText value="#{msgs.message}"    styleClass="txt" />
+					<h:inputText id="message" value="#{contactJsf.message}" required="true"
+					requiredMessage="#{msgs.champobligatoire}" />
+					<br />					
+					<br />
+					<h:outputText value="#{msgs.envoyercopie}"   styleClass="txt" />
+					<h:selectBooleanCheckbox id="envoyercopie" value="#{contactJsf.copymessage}"></h:selectBooleanCheckbox>
+					<br />
+					<br />
+					<h:commandButton id="submit" action="#{contactJsf.create()}"
+						value="Valider" />
+					<br />
+					<br />
+				</h:form>
+</composite:implementation>
+</body>
+</html>
