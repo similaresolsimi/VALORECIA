@@ -14,6 +14,7 @@
 </composite:interface>
 <composite:implementation>
 	<h:form id="formContactRequest">
+					
 					<h:outputText value="#{msgs.nom}" styleClass="txt" />
 					<h:inputText id="nom" value="#{contactJsf.nom}" required="true"
 					requiredMessage="#{msgs.champobligatoire}" />
@@ -31,18 +32,18 @@
 					requiredMessage="#{msgs.champobligatoire}" />
 					<br/>
 					
-					<h:outputText  value="#{msgs.contactorigine}" styleClass="txt" />
-					<h:selectOneMenu  id="contactorigine" value="#{contactJsf.contactOrigineId}">
-<!-- 						<f:selectItem itemValue="#{null}" itemLabel="#{msgs.contactorigine}"/> -->
-						<f:selectItems  var="contactorigineJsf"						
-									itemValue="#{contactorigine.contactOrigineId}"
-									itemLabel="#{contactorigine.contactOrigine}"
-									value="#{contactOrigineJsf.allContactOrigine}">
-						</f:selectItems>
-					</h:selectOneMenu>
-					<br/>
+<!-- 					<h:outputText  value="#{msgs.contactorigine}" styleClass="txt" /> -->
+<!-- 					<h:selectOneMenu  id="contactorigine" value="#{contactJsf.contactOrigineId}"> -->
+<!--  						<f:selectItem itemValue="#{null}" itemLabel="#{msgs.contactorigine}"/> -->
+<!-- 						<f:selectItems  var="contactorigineJsf"						 -->
+<!-- 									itemValue="#{contactorigine.contactOrigineId}" -->
+<!-- 									itemLabel="#{contactorigine.contactOrigine}" -->
+<!-- 									value="#{contactOrigineJsf.allContactOrigine}"> -->
+<!-- 						</f:selectItems> -->
+<!-- 					</h:selectOneMenu> -->
+<!-- 					<br/> -->
 
-					<!-- exemple 1 dynamique zoo maic -->
+<!-- 					exemple 1 dynamique zoo maic -->
 <!-- 					<h:selectOneMenu id="species" value="#{animalJsf.speciesId}" -->
 <!-- 					required="true" requiredMessage="#{msgs.mandatory}"> -->
 <!-- 					<f:selectItem itemValue="#{null}" -->
@@ -54,18 +55,15 @@
 <!-- 				</h:selectOneMenu> -->
 <!-- 				<h:message style="color: red" for="species" /> -->
 
-					<!-- exemple statique -->
-<!-- 					<h:selectOneMenu id="enclosure" value="#{animalJsf.enclosure}" -->
-<!-- 					required="true" requiredMessage="#{msgs.mandatory}"> -->
-<!-- 					<f:selectItem itemValue="#{null}" -->
-<!-- 						itemLabel="#{msgs.animalenclosuredefault}" /> -->
-<!-- 					<f:selectItem itemValue="aviary" itemLabel="Aviary" /> -->
-<!-- 					<f:selectItem itemValue="vivarium" itemLabel="Vivarium" /> -->
-<!-- 					<f:selectItem itemValue="pool" itemLabel="Pool" /> -->
-<!-- 					<f:selectItem itemValue="bigcage" itemLabel="Big cage" /> -->
-<!-- 					<f:selectItem itemValue="smallcage" itemLabel="Small cage" /> -->
-<!-- 				</h:selectOneMenu> -->
-<!-- 				<h:message style="color: red" for="enclosure" /> -->
+<!-- 					exemple statique -->
+					<h:outputText  value="#{msgs.contactorigine}" styleClass="txt" />
+					<h:selectOneMenu id="contactorigine" value="#{contactJsf.contactOrigineId}">
+					<f:selectItem itemValue="#{null}"	itemLabel="#{msgs.message}" />
+					<f:selectItem itemValue="1" itemLabel="Vous nous connaissiez déjà avant" />
+					<f:selectItem itemValue="2" itemLabel="Une de vos connaissances vous as eguillé vers nous." />
+					<f:selectItem itemValue="3" itemLabel="Vous avez fait une recherche internet" />
+					</h:selectOneMenu>
+				<h:message style="color: red" for="contactorigine" />
 
 <!-- 					<h:selectOneMenu id="contactoriginestatique" value="#{contactJsf.contactOrigineId}" -->
 <!-- 					required="true" requiredMessage="#{msgs.champobligatoire}"> -->

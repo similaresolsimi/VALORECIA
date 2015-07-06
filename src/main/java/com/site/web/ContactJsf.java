@@ -1,6 +1,5 @@
 package com.site.web;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Model;
@@ -33,7 +32,7 @@ public class ContactJsf {
 	private String telephone;
 	private String message;
 	private Boolean copymessage;
-	private Date dateMessage;
+	//	private LocalDateTime dateMessage;
 	private ContactOrigine contactOrigine;
 	private Long contactOrigineId;
 	/**
@@ -130,23 +129,24 @@ public class ContactJsf {
 	/**
 	 * @param copymessage the copymessage to set
 	 */
-	public void setSendMessage(Boolean copymessage) {
+	public void setcopymessage(Boolean copymessage) {
 		this.copymessage = copymessage;
 	}
 
-	/**
-	 * @return the dateMessage
-	 */
-	public Date getDateMessage() {
-		return dateMessage;
-	}
-
-	/**
-	 * @param dateMessage the dateMessage to set
-	 */
-	public void setDateMessage(Date dateMessage) {
-		this.dateMessage = dateMessage;
-	}
+	//	/**
+	//	 * @return the dateMessage
+	//	 */
+	//	public LocalDateTime getDateMessage() {
+	//		dateMessage = LocalDateTime.now();
+	//		return dateMessage;
+	//	}
+	//
+	//	/**
+	//	 * @param dateMessage the dateMessage to set
+	//	 */
+	//	public void setDateMessage(LocalDateTime dateMessage) {
+	//		this.dateMessage = dateMessage;
+	//	}
 
 	/**
 	 * @return the contactOrigine
@@ -192,8 +192,8 @@ public class ContactJsf {
 			setMail(contactFromList.getMail());
 			setTelephone(contactFromList.getTelephone());
 			setMessage(contactFromList.getMessage());
-			setSendMessage(contactFromList.getcopymessage());
-			setDateMessage(contactFromList.getDateMessage());
+			setcopymessage(contactFromList.getcopymessage());
+			//			setDateMessage(contactFromList.getDateMessage());
 			setContactOrigineId(contactFromList.getContactOrigine().getContactOrigineId());
 		}
 		// Navigation case.
@@ -231,7 +231,7 @@ public class ContactJsf {
 
 	public String create() {
 		ContactOrigine ContactOrigineFromDao = contactOrigineService.getContactOrigine(contactOrigineId);
-		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage, dateMessage, ContactOrigineFromDao);
+		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage,  ContactOrigineFromDao);
 		return "create";
 	}
 

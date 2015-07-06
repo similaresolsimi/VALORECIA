@@ -3,8 +3,6 @@
  */
 package com.site.obj;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +14,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * @author carole
  *
@@ -44,9 +41,8 @@ public class Contact {
 	private String message;
 	@XmlAttribute
 	private Boolean copymessage;
-	@XmlAttribute
-	private Date dateMessage;
-
+	//	@XmlAttribute
+	//	private LocalDateTime dateMessage;
 	@ManyToOne
 	@XmlElement(required = true)
 	private ContactOrigine contactOrigine;
@@ -56,9 +52,24 @@ public class Contact {
 		// TODO Auto-generated constructor stub
 	}
 
+	//	public Contact(String nom,
+	//			String prenom,String mail,String telephone,String message,
+	//			Boolean copymessage,LocalDateTime dateMessage,ContactOrigine contactOrigine)
+	//	{
+	//		this.nom = nom;
+	//		this.prenom=prenom;
+	//		this.mail=mail;
+	//		this.telephone=telephone;
+	//		this.message=message;
+	//		this.copymessage=copymessage;
+	//		this.dateMessage=dateMessage;
+	//		this.contactOrigine=contactOrigine;
+	//
+	//	}
+
 	public Contact(String nom,
 			String prenom,String mail,String telephone,String message,
-			Boolean copymessage,Date dateMessage,ContactOrigine contactOrigine)
+			Boolean copymessage,ContactOrigine contactOrigine)
 	{
 		this.nom = nom;
 		this.prenom=prenom;
@@ -66,7 +77,6 @@ public class Contact {
 		this.telephone=telephone;
 		this.message=message;
 		this.copymessage=copymessage;
-		this.dateMessage=dateMessage;
 		this.contactOrigine=contactOrigine;
 
 	}
@@ -150,15 +160,21 @@ public class Contact {
 	/**
 	 * @return the dateMessage
 	 */
-	public Date getDateMessage() {
-		return dateMessage;
-	}
+	//	public LocalDateTime getDateMessage() {
+	//		//		Date date =  new Date(1000);
+	//		//		return date;
+	//		return dateMessage;
+	//
+	//	}
 
-	/**
-	 * @param dateMessage the dateMessage to set
-	 */
-	public void setDateMessage(Date dateMessage) {
-		this.dateMessage = dateMessage;
-	}
+	//	/**
+	//	 * @param dateMessage the dateMessage to set
+	//	 */
+	//
+	//	public void setDateMessage(LocalDateTime dateMessage) {
+	//		//		Date date =  new Date(1000);
+	//		//		dateMessage=date;
+	//		this.dateMessage =dateMessage;
+	//	}
 
 }
