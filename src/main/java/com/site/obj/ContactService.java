@@ -33,14 +33,24 @@ public class ContactService implements ContactServiceInterface {
 	//		return contact;
 	//	}
 
+	//	@Override
+	//	public Contact createContact(String name,String surname,String mail,String telephone,String message,
+	//			Boolean sendMessage,ContactOrigine contactOrigine) {
+	//
+	//		Contact contact = new Contact( name, surname, mail, telephone, message,	sendMessage, contactOrigine);
+	//		contactDao.persist(contact);
+	//		return contact;
+	//	}
+	//
 	@Override
 	public Contact createContact(String name,String surname,String mail,String telephone,String message,
-			Boolean sendMessage,ContactOrigine contactOrigine) {
+			Boolean sendMessage,Long contactOrigineId) {
 
-		Contact contact = new Contact( name, surname, mail, telephone, message,	sendMessage, contactOrigine);
+		Contact contact = new Contact( name, surname, mail, telephone, message,	sendMessage, contactOrigineId);
 		contactDao.persist(contact);
 		return contact;
 	}
+
 	@Override
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public ArrayList<Contact> getAllContact() {

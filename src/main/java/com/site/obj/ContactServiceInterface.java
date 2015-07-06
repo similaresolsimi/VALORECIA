@@ -14,9 +14,13 @@ public interface ContactServiceInterface {
 	//			String surname,String mail,String telephone,String message,
 	//			Boolean sendMessage,LocalDateTime dateMessage,ContactOrigine contactOrigine);
 
+	//	public Contact createContact(String name,
+	//			String surname,String mail,String telephone,String message,
+	//			Boolean sendMessage,ContactOrigine contactOrigine);
+
 	public Contact createContact(String name,
 			String surname,String mail,String telephone,String message,
-			Boolean sendMessage,ContactOrigine contactOrigine);
+			Boolean sendMessage,Long contactOrigineId );
 
 	/**
 	 * @return list of all Contact request.

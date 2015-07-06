@@ -7,12 +7,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 /**
  * @author carole
@@ -43,10 +41,40 @@ public class Contact {
 	private Boolean copymessage;
 	//	@XmlAttribute
 	//	private LocalDateTime dateMessage;
-	@ManyToOne
-	@XmlElement(required = true)
-	private ContactOrigine contactOrigine;
+	//	@ManyToOne
+	//	@XmlElement(required = true)
+	//	private ContactOrigine contactOrigine;
+	@XmlAttribute
+	private Long ContactOrigineId;
 
+
+	/**
+	 * @return the copymessage
+	 */
+	public Boolean getCopymessage() {
+		return copymessage;
+	}
+
+	/**
+	 * @param copymessage the copymessage to set
+	 */
+	public void setCopymessage(Boolean copymessage) {
+		this.copymessage = copymessage;
+	}
+
+	/**
+	 * @return the contactOrigineId
+	 */
+	public Long getContactOrigineId() {
+		return ContactOrigineId;
+	}
+
+	/**
+	 * @param contactOrigineId the contactOrigineId to set
+	 */
+	public void setContactOrigineId(Long contactOrigineId) {
+		ContactOrigineId = contactOrigineId;
+	}
 
 	public Contact() {
 		// TODO Auto-generated constructor stub
@@ -67,9 +95,23 @@ public class Contact {
 	//
 	//	}
 
+	//	public Contact(String nom,
+	//			String prenom,String mail,String telephone,String message,
+	//			Boolean copymessage,ContactOrigine contactOrigine)
+	//	{
+	//		this.nom = nom;
+	//		this.prenom=prenom;
+	//		this.mail=mail;
+	//		this.telephone=telephone;
+	//		this.message=message;
+	//		this.copymessage=copymessage;
+	//		this.contactOrigine=contactOrigine;
+	//
+	//	}
+
 	public Contact(String nom,
 			String prenom,String mail,String telephone,String message,
-			Boolean copymessage,ContactOrigine contactOrigine)
+			Boolean copymessage,Long contactOrigineId)
 	{
 		this.nom = nom;
 		this.prenom=prenom;
@@ -77,7 +119,7 @@ public class Contact {
 		this.telephone=telephone;
 		this.message=message;
 		this.copymessage=copymessage;
-		this.contactOrigine=contactOrigine;
+		this.ContactOrigineId=contactOrigineId;
 
 	}
 
@@ -146,16 +188,16 @@ public class Contact {
 	/**
 	 * @return the contactOrigine
 	 */
-	public ContactOrigine getContactOrigine() {
-		return contactOrigine;
-	}
-
-	/**
-	 * @param contactOrigine the contactOrigine to set
-	 */
-	public void setContactOrigine(ContactOrigine contactOrigine) {
-		this.contactOrigine = contactOrigine;
-	}
+	//	public ContactOrigine getContactOrigine() {
+	//		return contactOrigine;
+	//	}
+	//
+	//	/**
+	//	 * @param contactOrigine the contactOrigine to set
+	//	 */
+	//	public void setContactOrigine(ContactOrigine contactOrigine) {
+	//		this.contactOrigine = contactOrigine;
+	//	}
 
 	/**
 	 * @return the dateMessage

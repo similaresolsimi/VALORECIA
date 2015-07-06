@@ -11,7 +11,6 @@ import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 
 import com.site.obj.Contact;
-import com.site.obj.ContactOrigine;
 import com.site.obj.ContactOrigineServiceInterface;
 import com.site.obj.ContactServiceInterface;
 
@@ -33,7 +32,7 @@ public class ContactJsf {
 	private String message;
 	private Boolean copymessage;
 	//	private LocalDateTime dateMessage;
-	private ContactOrigine contactOrigine;
+	//	private ContactOrigine contactOrigine;
 	private Long contactOrigineId;
 	/**
 	 * @return the contactService
@@ -151,16 +150,16 @@ public class ContactJsf {
 	/**
 	 * @return the contactOrigine
 	 */
-	public ContactOrigine getContactOrigine() {
-		return contactOrigine;
-	}
+	//	public ContactOrigine getContactOrigine() {
+	//		return contactOrigine;
+	//	}
 
 	/**
 	 * @param contactOrigine the contactOrigine to set
 	 */
-	public void setContactOrigine(ContactOrigine contactOrigine) {
-		this.contactOrigine = contactOrigine;
-	}
+	//	public void setContactOrigine(ContactOrigine contactOrigine) {
+	//		this.contactOrigine = contactOrigine;
+	//	}
 
 	/**
 	 * @return the contactOrigineId
@@ -186,7 +185,7 @@ public class ContactJsf {
 		// Get selected animal to be displayed.
 		Contact contactFromList = (Contact) dataTable.getRowData();
 		if (contactFromList != null) {
-			// Set animal's properties to be displayed.
+			// Set properties to be displayed.
 			setNom(contactFromList.getNom());
 			setPrenom(contactFromList.getPrenom());
 			setMail(contactFromList.getMail());
@@ -194,7 +193,8 @@ public class ContactJsf {
 			setMessage(contactFromList.getMessage());
 			setcopymessage(contactFromList.getcopymessage());
 			//			setDateMessage(contactFromList.getDateMessage());
-			setContactOrigineId(contactFromList.getContactOrigine().getContactOrigineId());
+			//			setContactOrigineId(contactFromList.getContactOrigine().getContactOrigineId());
+			setContactOrigineId(contactFromList.getContactOrigineId());
 		}
 		// Navigation case.
 		return "contact";
@@ -230,8 +230,9 @@ public class ContactJsf {
 	}
 
 	public String create() {
-		ContactOrigine ContactOrigineFromDao = contactOrigineService.getContactOrigine(contactOrigineId);
-		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage,  ContactOrigineFromDao);
+		//		ContactOrigine ContactOrigineFromDao = contactOrigineService.getContactOrigine(contactOrigineId);
+		//		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage,  ContactOrigineFromDao);
+		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage,  contactOrigineId);
 		return "create";
 	}
 
