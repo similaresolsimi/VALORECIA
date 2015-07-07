@@ -3,7 +3,6 @@
  */
 package com.site.obj;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.ejb.Stateless;
@@ -23,13 +22,31 @@ public class ContactService implements ContactServiceInterface {
 	@Inject
 	private ContactDaoInterface contactDao;
 
-	@Override
-	public Contact createContact(String name,
-			String surname,String mail,String telephone,String message,
-			Boolean sendMessage,Date dateMessage,ContactOrigine contactOrigine) {
+	//	@Override
+	//	public Contact createContact(String name,
+	//			String surname,String mail,String telephone,String message,
+	//			Boolean sendMessage,LocalDateTime dateMessage,ContactOrigine contactOrigine) {
+	//
+	//		Contact contact = new Contact( name, surname, mail, telephone, message,
+	//				sendMessage, dateMessage, contactOrigine);
+	//		contactDao.persist(contact);
+	//		return contact;
+	//	}
 
-		Contact contact = new Contact( name, surname, mail, telephone, message,
-				sendMessage, dateMessage, contactOrigine);
+	//	@Override
+	//	public Contact createContact(String name,String surname,String mail,String telephone,String message,
+	//			Boolean sendMessage,ContactOrigine contactOrigine) {
+	//
+	//		Contact contact = new Contact( name, surname, mail, telephone, message,	sendMessage, contactOrigine);
+	//		contactDao.persist(contact);
+	//		return contact;
+	//	}
+	//
+	@Override
+	public Contact createContact(String name,String surname,String mail,String telephone,String message,
+			Boolean sendMessage,Long contactOrigineId) {
+
+		Contact contact = new Contact( name, surname, mail, telephone, message,	sendMessage, contactOrigineId);
 		contactDao.persist(contact);
 		return contact;
 	}

@@ -3,20 +3,15 @@
  */
 package com.site.obj;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * @author carole
  *
@@ -44,21 +39,79 @@ public class Contact {
 	private String message;
 	@XmlAttribute
 	private Boolean copymessage;
+	//	@XmlAttribute
+	//	private LocalDateTime dateMessage;
+	//	@ManyToOne
+	//	@XmlElement(required = true)
+	//	private ContactOrigine contactOrigine;
 	@XmlAttribute
-	private Date dateMessage;
+	private Long ContactOrigineId;
 
-	@ManyToOne
-	@XmlElement(required = true)
-	private ContactOrigine contactOrigine;
 
+	/**
+	 * @return the copymessage
+	 */
+	public Boolean getCopymessage() {
+		return copymessage;
+	}
+
+	/**
+	 * @param copymessage the copymessage to set
+	 */
+	public void setCopymessage(Boolean copymessage) {
+		this.copymessage = copymessage;
+	}
+
+	/**
+	 * @return the contactOrigineId
+	 */
+	public Long getContactOrigineId() {
+		return ContactOrigineId;
+	}
+
+	/**
+	 * @param contactOrigineId the contactOrigineId to set
+	 */
+	public void setContactOrigineId(Long contactOrigineId) {
+		ContactOrigineId = contactOrigineId;
+	}
 
 	public Contact() {
 		// TODO Auto-generated constructor stub
 	}
 
+	//	public Contact(String nom,
+	//			String prenom,String mail,String telephone,String message,
+	//			Boolean copymessage,LocalDateTime dateMessage,ContactOrigine contactOrigine)
+	//	{
+	//		this.nom = nom;
+	//		this.prenom=prenom;
+	//		this.mail=mail;
+	//		this.telephone=telephone;
+	//		this.message=message;
+	//		this.copymessage=copymessage;
+	//		this.dateMessage=dateMessage;
+	//		this.contactOrigine=contactOrigine;
+	//
+	//	}
+
+	//	public Contact(String nom,
+	//			String prenom,String mail,String telephone,String message,
+	//			Boolean copymessage,ContactOrigine contactOrigine)
+	//	{
+	//		this.nom = nom;
+	//		this.prenom=prenom;
+	//		this.mail=mail;
+	//		this.telephone=telephone;
+	//		this.message=message;
+	//		this.copymessage=copymessage;
+	//		this.contactOrigine=contactOrigine;
+	//
+	//	}
+
 	public Contact(String nom,
 			String prenom,String mail,String telephone,String message,
-			Boolean copymessage,Date dateMessage,ContactOrigine contactOrigine)
+			Boolean copymessage,Long contactOrigineId)
 	{
 		this.nom = nom;
 		this.prenom=prenom;
@@ -66,8 +119,7 @@ public class Contact {
 		this.telephone=telephone;
 		this.message=message;
 		this.copymessage=copymessage;
-		this.dateMessage=dateMessage;
-		this.contactOrigine=contactOrigine;
+		this.ContactOrigineId=contactOrigineId;
 
 	}
 
@@ -136,29 +188,35 @@ public class Contact {
 	/**
 	 * @return the contactOrigine
 	 */
-	public ContactOrigine getContactOrigine() {
-		return contactOrigine;
-	}
-
-	/**
-	 * @param contactOrigine the contactOrigine to set
-	 */
-	public void setContactOrigine(ContactOrigine contactOrigine) {
-		this.contactOrigine = contactOrigine;
-	}
+	//	public ContactOrigine getContactOrigine() {
+	//		return contactOrigine;
+	//	}
+	//
+	//	/**
+	//	 * @param contactOrigine the contactOrigine to set
+	//	 */
+	//	public void setContactOrigine(ContactOrigine contactOrigine) {
+	//		this.contactOrigine = contactOrigine;
+	//	}
 
 	/**
 	 * @return the dateMessage
 	 */
-	public Date getDateMessage() {
-		return dateMessage;
-	}
+	//	public LocalDateTime getDateMessage() {
+	//		//		Date date =  new Date(1000);
+	//		//		return date;
+	//		return dateMessage;
+	//
+	//	}
 
-	/**
-	 * @param dateMessage the dateMessage to set
-	 */
-	public void setDateMessage(Date dateMessage) {
-		this.dateMessage = dateMessage;
-	}
+	//	/**
+	//	 * @param dateMessage the dateMessage to set
+	//	 */
+	//
+	//	public void setDateMessage(LocalDateTime dateMessage) {
+	//		//		Date date =  new Date(1000);
+	//		//		dateMessage=date;
+	//		this.dateMessage =dateMessage;
+	//	}
 
 }

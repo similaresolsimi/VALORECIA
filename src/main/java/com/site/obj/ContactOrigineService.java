@@ -26,8 +26,7 @@ public class ContactOrigineService implements ContactOrigineServiceInterface {
 	private ContactOrigineDaoInterface contactOrigineDao;
 
 	@Override
-	public ContactOrigine createContactOrigine(Long contactOrigineId,
-			String _contactOrigine) {
+	public ContactOrigine createContactOrigine(Long contactOrigineId,String _contactOrigine) {
 		ContactOrigine contactOrigine = new ContactOrigine(contactOrigineId, _contactOrigine);
 		contactOrigineDao.persist(contactOrigine);
 		return contactOrigine;

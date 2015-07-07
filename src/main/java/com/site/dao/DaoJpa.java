@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.site.dao;
 
@@ -31,6 +31,7 @@ public abstract class DaoJpa<K, E> implements Dao<K, E> {
 	 * @param entity E the entity to save.
 	 * @see com.humanbooster.zobi.dao.Dao#persist(java.lang.Object)
 	 */
+	@Override
 	public void persist(E entity) {
 		entityManager.persist(entity);
 	}
@@ -39,6 +40,7 @@ public abstract class DaoJpa<K, E> implements Dao<K, E> {
 	 * @param entity E the entity to delete.
 	 * @see com.humanbooster.zobi.dao.Dao#remove(java.lang.Object)
 	 */
+	@Override
 	public void remove(E entity) {
 		entityManager.remove(entity);
 	}
@@ -48,6 +50,7 @@ public abstract class DaoJpa<K, E> implements Dao<K, E> {
 	 * @return E an entity.
 	 * @see com.humanbooster.zobi.dao.Dao#findById(java.lang.Object)
 	 */
+	@Override
 	public E findById(K id) {
 		return entityManager.find(entityClass, id);
 	}
@@ -56,6 +59,7 @@ public abstract class DaoJpa<K, E> implements Dao<K, E> {
 	 * @return a collection of entities.
 	 * @see com.humanbooster.zobi.dao.Dao#findAll()
 	 */
+	@Override
 	@SuppressWarnings("unchecked")
 	public Collection<E> findAll() {
 		return entityManager.createNamedQuery(entityClass.getSimpleName() + ".findAll").getResultList();

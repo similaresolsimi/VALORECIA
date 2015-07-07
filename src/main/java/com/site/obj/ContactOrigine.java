@@ -17,6 +17,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 @NamedQuery(name="ContactOrigine.findAll", query="SELECT c FROM ContactOrigine c")
 public class ContactOrigine {
 
+
 	/**
 	 *
 	 */
@@ -42,13 +43,13 @@ public class ContactOrigine {
 	public Long getContactOrigineId() {
 		return contactOrigineId;
 	}
-
-	/**
-	 * @param contactOrigineId the contactOrigineId to set
-	 */
-	public void setContactOrigineId(Long contactOrigineId) {
-		this.contactOrigineId = contactOrigineId;
-	}
+	//
+	//	/**
+	//	 * @param contactOrigineId the contactOrigineId to set
+	//	 */
+	//	public void setContactOrigineId(Long contactOrigineId) {
+	//		this.contactOrigineId = contactOrigineId;
+	//	}
 
 	/**
 	 * @return the contactOrigine

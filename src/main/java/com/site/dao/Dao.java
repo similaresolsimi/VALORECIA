@@ -1,14 +1,14 @@
 /**
- * 
+ *
  */
 package com.site.dao;
 
 import java.util.Collection;
 
 /**
-* K is type of the Key (usually Long or String)
-* E is the type of entity managed by this DAO
-*/
+ * K is type of the Key (usually Long or String)
+ * E is the type of entity managed by this DAO
+ */
 public interface Dao<K, E> {
 
 	void persist(E entity);
