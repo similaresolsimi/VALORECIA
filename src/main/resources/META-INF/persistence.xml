@@ -28,6 +28,7 @@
          can find it in the source at src/main/webapp/WEB-INF/valorecia-ds.xml -->
       <class>com.site.obj.Contact</class>
       <class>com.site.obj.ContactOrigine</class>
+      <class>com.site.obj.user</class>
       <properties>
          <!-- Properties for Hibernate -->
          <property name="hibernate.hbm2ddl.auto" value="create-drop" />
@@ -36,6 +37,8 @@
          <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
          <property name="hibernate.connection.url" value="jdbc:postgresql:valorecia"/>
          <property name="hibernate.format_sql" value="true"/>
+         <property name="hibernate.connection.username" value="postgres"/>
+         <property name="hibernate.connection.password" value="admin87"/>
       </properties>
    </persistence-unit>
 </persistence>
