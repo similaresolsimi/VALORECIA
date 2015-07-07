@@ -10,5 +10,11 @@ public class LoginServiceImpl implements LoginService{
 		else return "pasok";
 	}
 
+	@Override
+	public String authorize(user util) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
