@@ -3,6 +3,7 @@
  */
 package com.site.obj;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import javax.ejb.Stateless;
@@ -22,16 +23,14 @@ public class ContactService implements ContactServiceInterface {
 	@Inject
 	private ContactDaoInterface contactDao;
 
-	//	@Override
-	//	public Contact createContact(String name,
-	//			String surname,String mail,String telephone,String message,
-	//			Boolean sendMessage,LocalDateTime dateMessage,ContactOrigine contactOrigine) {
-	//
-	//		Contact contact = new Contact( name, surname, mail, telephone, message,
-	//				sendMessage, dateMessage, contactOrigine);
-	//		contactDao.persist(contact);
-	//		return contact;
-	//	}
+	@Override
+	public Contact createContact(String name,String surname,String mail,String telephone,
+			String message,Boolean sendMessage,LocalDateTime dateMessage,ContactOrigine contactOrigine) {
+
+		Contact contact = new Contact( name, surname, mail, telephone, message,	sendMessage, dateMessage, contactOrigine);
+		contactDao.persist(contact);
+		return contact;
+	}
 
 	//	@Override
 	//	public Contact createContact(String name,String surname,String mail,String telephone,String message,
@@ -42,14 +41,14 @@ public class ContactService implements ContactServiceInterface {
 	//		return contact;
 	//	}
 	//
-	@Override
-	public Contact createContact(String name,String surname,String mail,String telephone,String message,
-			Boolean sendMessage,Long contactOrigineId) {
-
-		Contact contact = new Contact( name, surname, mail, telephone, message,	sendMessage, contactOrigineId);
-		contactDao.persist(contact);
-		return contact;
-	}
+	//	@Override
+	//	public Contact createContact(String name,String surname,String mail,String telephone,String message,
+	//			Boolean sendMessage,Long contactOrigineId) {
+	//
+	//		Contact contact = new Contact( name, surname, mail, telephone, message,	sendMessage, contactOrigineId);
+	//		contactDao.persist(contact);
+	//		return contact;
+	//	}
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)

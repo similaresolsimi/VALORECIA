@@ -3,14 +3,19 @@
  */
 package com.site.obj;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+//import javax.persistence.TableGenerator;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 /**
  * @author carole
@@ -22,9 +27,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Contact {
 
-	@Id
+	@Id //Clé primaire
 	@GeneratedValue
-	@XmlAttribute(required = true)
+	//	@XmlAttribute(required = true)
 	@Column(unique=true)
 	private Long ContactId;
 	@XmlAttribute(required = true)
@@ -39,13 +44,13 @@ public class Contact {
 	private String message;
 	@XmlAttribute
 	private Boolean copymessage;
-	//	@XmlAttribute
-	//	private LocalDateTime dateMessage;
-	//	@ManyToOne
-	//	@XmlElement(required = true)
-	//	private ContactOrigine contactOrigine;
 	@XmlAttribute
-	private Long ContactOrigineId;
+	private LocalDateTime dateMessage;
+	@ManyToOne
+	@XmlElement(required = true)
+	private ContactOrigine contactOrigine;
+	//	@XmlAttribute
+	//	private Long ContactOrigineId;
 
 
 	/**
@@ -62,38 +67,38 @@ public class Contact {
 		this.copymessage = copymessage;
 	}
 
-	/**
-	 * @return the contactOrigineId
-	 */
-	public Long getContactOrigineId() {
-		return ContactOrigineId;
-	}
-
-	/**
-	 * @param contactOrigineId the contactOrigineId to set
-	 */
-	public void setContactOrigineId(Long contactOrigineId) {
-		ContactOrigineId = contactOrigineId;
-	}
+	//	/**
+	//	 * @return the contactOrigineId
+	//	 */
+	//	public Long getContactOrigineId() {
+	//		return ContactOrigineId;
+	//	}
+	//
+	//	/**
+	//	 * @param contactOrigineId the contactOrigineId to set
+	//	 */
+	//	public void setContactOrigineId(Long contactOrigineId) {
+	//		ContactOrigineId = contactOrigineId;
+	//	}
 
 	public Contact() {
 		// TODO Auto-generated constructor stub
 	}
 
-	//	public Contact(String nom,
-	//			String prenom,String mail,String telephone,String message,
-	//			Boolean copymessage,LocalDateTime dateMessage,ContactOrigine contactOrigine)
-	//	{
-	//		this.nom = nom;
-	//		this.prenom=prenom;
-	//		this.mail=mail;
-	//		this.telephone=telephone;
-	//		this.message=message;
-	//		this.copymessage=copymessage;
-	//		this.dateMessage=dateMessage;
-	//		this.contactOrigine=contactOrigine;
-	//
-	//	}
+	public Contact(String nom,
+			String prenom,String mail,String telephone,String message,
+			Boolean copymessage,LocalDateTime dateMessage,ContactOrigine contactOrigine)
+	{
+		this.nom = nom;
+		this.prenom=prenom;
+		this.mail=mail;
+		this.telephone=telephone;
+		this.message=message;
+		this.copymessage=copymessage;
+		this.dateMessage=dateMessage;
+		this.contactOrigine=contactOrigine;
+
+	}
 
 	//	public Contact(String nom,
 	//			String prenom,String mail,String telephone,String message,
@@ -109,19 +114,19 @@ public class Contact {
 	//
 	//	}
 
-	public Contact(String nom,
-			String prenom,String mail,String telephone,String message,
-			Boolean copymessage,Long contactOrigineId)
-	{
-		this.nom = nom;
-		this.prenom=prenom;
-		this.mail=mail;
-		this.telephone=telephone;
-		this.message=message;
-		this.copymessage=copymessage;
-		this.ContactOrigineId=contactOrigineId;
-
-	}
+	//	public Contact(String nom,
+	//			String prenom,String mail,String telephone,String message,
+	//			Boolean copymessage,Long contactOrigineId)
+	//	{
+	//		this.nom = nom;
+	//		this.prenom=prenom;
+	//		this.mail=mail;
+	//		this.telephone=telephone;
+	//		this.message=message;
+	//		this.copymessage=copymessage;
+	//		this.ContactOrigineId=contactOrigineId;
+	//
+	//	}
 
 	public Long getContactId() {
 		return ContactId;
@@ -188,35 +193,35 @@ public class Contact {
 	/**
 	 * @return the contactOrigine
 	 */
-	//	public ContactOrigine getContactOrigine() {
-	//		return contactOrigine;
-	//	}
-	//
-	//	/**
-	//	 * @param contactOrigine the contactOrigine to set
-	//	 */
-	//	public void setContactOrigine(ContactOrigine contactOrigine) {
-	//		this.contactOrigine = contactOrigine;
-	//	}
+	public ContactOrigine getContactOrigine() {
+		return contactOrigine;
+	}
+
+	/**
+	 * @param contactOrigine the contactOrigine to set
+	 */
+	public void setContactOrigine(ContactOrigine contactOrigine) {
+		this.contactOrigine = contactOrigine;
+	}
 
 	/**
 	 * @return the dateMessage
 	 */
-	//	public LocalDateTime getDateMessage() {
-	//		//		Date date =  new Date(1000);
-	//		//		return date;
-	//		return dateMessage;
-	//
-	//	}
+	public LocalDateTime getDateMessage() {
+		//		Date date =  new Date(1000);
+		//		return date;
+		return dateMessage;
 
-	//	/**
-	//	 * @param dateMessage the dateMessage to set
-	//	 */
-	//
-	//	public void setDateMessage(LocalDateTime dateMessage) {
-	//		//		Date date =  new Date(1000);
-	//		//		dateMessage=date;
-	//		this.dateMessage =dateMessage;
-	//	}
+	}
+
+	/**
+	 * @param dateMessage the dateMessage to set
+	 */
+
+	public void setDateMessage(LocalDateTime dateMessage) {
+		//		Date date =  new Date(1000);
+		//		dateMessage=date;
+		this.dateMessage =dateMessage;
+	}
 
 }

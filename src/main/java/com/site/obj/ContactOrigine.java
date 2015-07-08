@@ -3,17 +3,19 @@
  */
 package com.site.obj;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+//import javax.persistence.TableGenerator;
 import javax.xml.bind.annotation.XmlAttribute;
 
 /**
  * @author carole
  *
  */
-@Entity(name="ContactOrigine")
+@Entity
 @NamedQuery(name="ContactOrigine.findAll", query="SELECT c FROM ContactOrigine c")
 public class ContactOrigine {
 
@@ -23,7 +25,7 @@ public class ContactOrigine {
 	 */
 	@Id
 	@GeneratedValue
-	//@Column(unique=true)
+	@Column(unique=true)
 	@XmlAttribute(required = true)
 	private Long contactOrigineId;
 	@XmlAttribute

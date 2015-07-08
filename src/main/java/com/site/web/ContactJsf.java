@@ -1,5 +1,6 @@
 package com.site.web;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Model;
@@ -11,6 +12,7 @@ import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 
 import com.site.obj.Contact;
+import com.site.obj.ContactOrigine;
 import com.site.obj.ContactOrigineServiceInterface;
 import com.site.obj.ContactServiceInterface;
 
@@ -24,15 +26,15 @@ public class ContactJsf {
 	@Inject
 	private ContactOrigineServiceInterface contactOrigineService;
 
-	//private Long ContactId;
+	//	private Long ContactId;
 	private String Nom;
 	private String Prenom;
 	private String mail;
 	private String telephone;
 	private String message;
 	private Boolean copymessage;
-	//	private LocalDateTime dateMessage;
-	//	private ContactOrigine contactOrigine;
+	private LocalDateTime dateMessage;
+	private ContactOrigine contactOrigine;
 	private Long contactOrigineId;
 	/**
 	 * @return the contactService
@@ -132,34 +134,34 @@ public class ContactJsf {
 		this.copymessage = copymessage;
 	}
 
-	//	/**
-	//	 * @return the dateMessage
-	//	 */
-	//	public LocalDateTime getDateMessage() {
-	//		dateMessage = LocalDateTime.now();
-	//		return dateMessage;
-	//	}
-	//
-	//	/**
-	//	 * @param dateMessage the dateMessage to set
-	//	 */
-	//	public void setDateMessage(LocalDateTime dateMessage) {
-	//		this.dateMessage = dateMessage;
-	//	}
+	/**
+	 * @return the dateMessage
+	 */
+	public LocalDateTime getDateMessage() {
+		dateMessage = LocalDateTime.now();
+		return dateMessage;
+	}
+
+	/**
+	 * @param dateMessage the dateMessage to set
+	 */
+	public void setDateMessage(LocalDateTime dateMessage) {
+		this.dateMessage = dateMessage;
+	}
 
 	/**
 	 * @return the contactOrigine
 	 */
-	//	public ContactOrigine getContactOrigine() {
-	//		return contactOrigine;
-	//	}
+	public ContactOrigine getContactOrigine() {
+		return contactOrigine;
+	}
 
 	/**
 	 * @param contactOrigine the contactOrigine to set
 	 */
-	//	public void setContactOrigine(ContactOrigine contactOrigine) {
-	//		this.contactOrigine = contactOrigine;
-	//	}
+	public void setContactOrigine(ContactOrigine contactOrigine) {
+		this.contactOrigine = contactOrigine;
+	}
 
 	/**
 	 * @return the contactOrigineId
@@ -192,9 +194,9 @@ public class ContactJsf {
 			setTelephone(contactFromList.getTelephone());
 			setMessage(contactFromList.getMessage());
 			setcopymessage(contactFromList.getcopymessage());
-			//			setDateMessage(contactFromList.getDateMessage());
-			//			setContactOrigineId(contactFromList.getContactOrigine().getContactOrigineId());
-			setContactOrigineId(contactFromList.getContactOrigineId());
+			setDateMessage(contactFromList.getDateMessage());
+			setContactOrigineId(contactFromList.getContactOrigine().getContactOrigineId());
+			//			setContactOrigineId(contactFromList.getContactOrigineId());
 		}
 		// Navigation case.
 		return "contact";
@@ -230,9 +232,9 @@ public class ContactJsf {
 	}
 
 	public String create() {
-		//		ContactOrigine ContactOrigineFromDao = contactOrigineService.getContactOrigine(contactOrigineId);
-		//		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage,  ContactOrigineFromDao);
-		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage,  contactOrigineId);
+		ContactOrigine ContactOrigineFromDao = contactOrigineService.getContactOrigine(contactOrigineId);
+		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage,  dateMessage, ContactOrigineFromDao);
+		//		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage,  contactOrigineId);
 		return "create";
 	}
 
