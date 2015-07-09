@@ -18,18 +18,18 @@
 <!-- This is an unmanaged datasource. It should be used for proofs of concept 
     or testing only. It uses H2, an in memory database that ships with JBoss 
     AS. -->
-<datasources xmlns="http://www.jboss.org/ironjacamar/schema"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
-    <!-- The datasource is bound into JNDI at this location. We reference 
+	<datasources xmlns="http://www.jboss.org/ironjacamar/schema"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+    	<!-- The datasource is bound into JNDI at this location. We reference 
         this in META-INF/persistence.xml -->
-    <datasource jndi-name="java:jboss/datasources/valoreciaDS"  
-        pool-name="valorecia" enabled="true"
+    	<datasource jndi-name="java:jboss/datasources/valoreciaDS"  
+        pool-name="valoreciaDS" enabled="true"
         use-java-context="true">
-<connection-url>jdbc:postgresql://localhost:5432/valorecia</connection-url>
-        <driver>postgre</driver>
+		<connection-url>jdbc:postgresql://localhost:5432/valoreciaDS</connection-url>
+        <driver>postgresql</driver>
         <security>
-            <user-name>admin</user-name>
+            <user-name>postgres</user-name>
             <password>admin</password>
         </security>
     </datasource>

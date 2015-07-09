@@ -84,6 +84,11 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+            	<groupId>org.postgresql</groupId>
+            	<artifactId>postgresql</artifactId>
+            	<version>9.4-1200-jdbc41</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -195,13 +200,10 @@
             <scope>test</scope>
         </dependency>
         
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.4-1201-jdbc4</version>
-		</dependency>
-
-
+<!--         <dependency> -->
+<!--         	<groupId>org.postgresql</groupId> -->
+<!--         	<artifactId>postgresql</artifactId> -->
+<!--         </dependency> -->
     </dependencies>
 
     <build>

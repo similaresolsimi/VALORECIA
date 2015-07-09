@@ -45,15 +45,6 @@
 <!-- ======= -->
 <!-- <<<<<<< HEAD -->
 
-         <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-         <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-         <property name="hibernate.connection.url" value="jdbc:postgresql:valorecia"/>
-         <property name="hibernate.format_sql" value="true"/>
-         <property name="hibernate.connection.username" value="admin"/>
-         <property name="hibernate.connection.password" value="admin"/>
-         <property name="hibernate.default_schema" value="Public"/>
-         <property name="hibernate.default_catalog" value="postgre"/>
-
 <!-- ======= -->
 <!-- >>>>>>> branch 'master' of https://github.com/similaresolsimi/valorecia.git -->
 <!-- >>>>>>> branch 'master' of https://github.com/similaresolsimi/valorecia -->
