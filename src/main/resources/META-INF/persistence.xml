@@ -22,16 +22,12 @@
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
    <persistence-unit name="primary">
    	<jta-data-source>java:jboss/datasources/valoreciaDS</jta-data-source>
-   	<class>com.site.obj.Contact</class>
-   	<class>com.site.obj.ContactOrigine</class>
       <!-- If you are running in a production environment, add a managed 
          data source, this example data source is just for development and testing! -->
       <!-- The datasource is deployed as WEB-INF/valorecia-ds.xml, you
          can find it in the source at src/main/webapp/WEB-INF/valorecia-ds.xml -->
 
 <!-- <<<<<<< HEAD -->
-
-      <class>com.site.obj.user</class>
 
 
 <!-- ======= -->
@@ -53,8 +49,10 @@
          <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
          <property name="hibernate.connection.url" value="jdbc:postgresql:valorecia"/>
          <property name="hibernate.format_sql" value="true"/>
-         <property name="hibernate.connection.username" value="postgres"/>
-         <property name="hibernate.connection.password" value="admin87"/>
+         <property name="hibernate.connection.username" value="admin"/>
+         <property name="hibernate.connection.password" value="admin"/>
+         <property name="hibernate.default_schema" value="Public"/>
+         <property name="hibernate.default_catalog" value="postgre"/>
 
 <!-- ======= -->
 <!-- >>>>>>> branch 'master' of https://github.com/similaresolsimi/valorecia.git -->
