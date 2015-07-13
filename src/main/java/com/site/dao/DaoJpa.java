@@ -17,6 +17,7 @@ import javax.persistence.PersistenceContext;
 public abstract class DaoJpa<K, E> implements Dao<K, E> {
 
 	protected Class<E> entityClass;
+
 	@Inject
 	@PersistenceContext
 	protected EntityManager entityManager;
