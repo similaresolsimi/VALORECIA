@@ -8,6 +8,7 @@ import java.util.Collection;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -25,6 +26,7 @@ public abstract class DaoJpa<K, E> implements Dao<K, E> {
 	@SuppressWarnings("unchecked")
 	public DaoJpa() {
 		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
+		entityManager=Persistence.createEntityManagerFactory("primary").createEntityManager();
 		this.entityClass = (Class<E>) genericSuperclass.getActualTypeArguments()[1];
 	}
 
