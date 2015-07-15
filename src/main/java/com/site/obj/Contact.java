@@ -9,8 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 //import javax.persistence.TableGenerator;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -46,7 +46,8 @@ public class Contact {
 	private Boolean copymessage;
 	@XmlAttribute
 	private LocalDateTime dateMessage;
-	@ManyToOne
+	//	@ManyToOne
+	@OneToOne
 	@XmlElement(required = true)
 	private ContactOrigine contactOrigine;
 	//	@XmlAttribute

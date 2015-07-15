@@ -26,8 +26,8 @@ COMMENT ON DATABASE valorecia
 DROP TABLE IF EXISTS ContactOrigine;
 
 CREATE TABLE ContactOrigine (
-    contactOrigineId     SERIAL PRIMARY KEY,
-    contactOrigine      varchar(255) NOT NULL
+    contactoriginelabelId     SERIAL PRIMARY KEY,
+    contactoriginelabel      varchar(255) NOT NULL
 );
 
 
@@ -42,17 +42,17 @@ Create Table Contact(
 	message varchar(8000) NOT NULL CHECK (message <> ''),
 	copymessage boolean Not NULL,
 	dateMessage timestamp DEFAULT current_timestamp, 
-	contactOrigineId  integer references ContactOrigine
+	contactorigineId  integer references ContactOrigine
 );
 
 --jeu test
 --insert Contact Origine
-Insert INTO ContactOrigine (contactOrigine) values ('Vous nous connaissiez déjà avant.');
-Insert INTO ContactOrigine (contactOrigine) values ('Une de vos connaissances vous as eguillé vers nous.');
-Insert INTO ContactOrigine (contactOrigine) values ('Vous avez fait une recherche internet');
+Insert INTO ContactOrigine (contactoriginelabel) values ('Vous nous connaissiez déjà avant.');
+Insert INTO ContactOrigine (contactoriginelabel) values ('Une de vos connaissances vous as eguillé vers nous.');
+Insert INTO ContactOrigine (contactoriginelabel) values ('Vous avez fait une recherche internet');
 
 --insert Contact
-Insert INTO Contact (	name ,	surname ,mail ,telephone ,message ,copymessage ,dateMessage ,contactOrigineId ) 
+Insert INTO Contact (	name ,	surname ,mail ,telephone ,message ,copymessage ,dateMessage ,contactorigineId ) 
 values ('FAGEGALTIER','Richard','richardfagegaltier@free.fr','0777793001','Bonjour, je souhaite communiquer avec vous !',true,now(),1);
 
 --test select

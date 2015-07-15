@@ -3,6 +3,7 @@ package com.site.web;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Model;
+import javax.faces.component.html.HtmlDataTable;
 import javax.inject.Inject;
 
 import com.site.obj.ContactOrigine;
@@ -13,7 +14,8 @@ public class ContactOrigineJsf {
 
 	@Inject
 	private ContactOrigineServiceInterface ContactOrigineSI;
-	private String contactOrigine;
+
+	private String contactOrigineLabel;
 
 
 	/**
@@ -33,18 +35,18 @@ public class ContactOrigineJsf {
 
 
 	/**
-	 * @return the contactOrigine
+	 * @return the contactOrigineLabel
 	 */
-	public String getContactOrigine() {
-		return contactOrigine;
+	public String getContactOrigineLabel() {
+		return contactOrigineLabel;
 	}
 
 
 	/**
-	 * @param contactOrigine the contactOrigine to set
+	 * @param contactOrigineLabel the contactOrigineLabel to set
 	 */
-	public void setContactOrigine(String contactOrigine) {
-		this.contactOrigine = contactOrigine;
+	public void setContactOrigineLabel(String contactOrigine) {
+		this.contactOrigineLabel = contactOrigine;
 	}
 
 
@@ -56,5 +58,20 @@ public class ContactOrigineJsf {
 	}
 
 
+	// Managed Backing Bean
+	private HtmlDataTable dataTable;
+	/**
+	 * @return "contactOrigine" (navigation). Set the contactOrigine and the hidden input field.
+	 */
+	public String editContactOrigine() {
+		// Get selected animal to be displayed.
+		ContactOrigine contactOrigineFromList = (ContactOrigine) dataTable.getRowData();
+		if (contactOrigineFromList != null) {
+			// Set properties to be displayed.
+			setContactOrigineLabel(contactOrigineFromList.getContactOrigineLabel());
 
+		}
+		// Navigation case.
+		return "contactOrigine";
+	}
 }

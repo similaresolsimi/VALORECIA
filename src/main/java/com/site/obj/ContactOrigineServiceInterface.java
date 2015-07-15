@@ -25,6 +25,6 @@ public interface ContactOrigineServiceInterface {
 	 * @param idContactOrigine a long the ContactOrigine id.
 	 * @return the ContactOrigineId
 	 */
-	public ContactOrigine getContactOrigine(long ContactOrigineId);
+	public ContactOrigine getContactOrigine(Long ContactOrigineId);
 
 }

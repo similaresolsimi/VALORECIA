@@ -33,6 +33,6 @@ public interface ContactServiceInterface {
 	 * @param ContactId a long the ContactId.
 	 * @return the ContactId
 	 */
-	public Contact getContact(long ContactId);
+	public Contact getContact(Long ContactId);
 
 }

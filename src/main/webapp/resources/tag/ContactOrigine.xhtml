@@ -13,12 +13,12 @@
 
 </composite:interface>
 <composite:implementation>
-	<h:dataTable  var="ContactOrigineVar">
-		<h:column>
-			<h:outputText value="#{ContactOrigineVar.contactOrigine}"/>
-		</h:column>
+	<h:dataTable id="#{contactOrigineJsf}" value="#{contactOrigineJsf.allContactOrigine}" var="ContactOrigineVar">
 		<h:column>
 			<h:outputText value="#{ContactOrigineVar.contactOrigineId}"/>
+		</h:column>
+		<h:column>
+			<h:outputText value="#{ContactOrigineVar.contactOrigineLabel}"/>
 		</h:column>
 	</h:dataTable>
 </composite:implementation>

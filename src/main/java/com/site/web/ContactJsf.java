@@ -22,9 +22,9 @@ import com.site.obj.ContactServiceInterface;
 public class ContactJsf {
 
 	@Inject
-	private ContactServiceInterface contactService;
+	private ContactServiceInterface contactSI;
 	@Inject
-	private ContactOrigineServiceInterface contactOrigineService;
+	private ContactOrigineServiceInterface contactOrigineSI;
 
 	//	private Long ContactId;
 	private String Nom;
@@ -37,17 +37,17 @@ public class ContactJsf {
 	private ContactOrigine contactOrigine;
 	private Long contactOrigineId;
 	/**
-	 * @return the contactService
+	 * @return the contactSI
 	 */
 	public ContactServiceInterface getContactService() {
-		return contactService;
+		return contactSI;
 	}
 
 	/**
-	 * @param contactService the contactService to set
+	 * @param contactSI the contactSI to set
 	 */
 	public void setContactService(ContactServiceInterface contactService) {
-		this.contactService = contactService;
+		this.contactSI = contactService;
 	}
 
 	/**
@@ -206,7 +206,7 @@ public class ContactJsf {
 	 * @return a list of all animals.
 	 */
 	public ArrayList<Contact> getAllContacts() {
-		return contactService.getAllContact();
+		return contactSI.getAllContact();
 	}
 
 	/**
@@ -232,9 +232,9 @@ public class ContactJsf {
 	}
 
 	public String create() {
-		ContactOrigine ContactOrigineFromDao = contactOrigineService.getContactOrigine(contactOrigineId);
-		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage,  dateMessage, ContactOrigineFromDao);
-		//		contactService.createContact( Nom, Prenom, mail, telephone, message, copymessage,  contactOrigineId);
+		ContactOrigine ContactOrigineFromDao = contactOrigineSI.getContactOrigine(contactOrigineId);
+		contactSI.createContact( Nom, Prenom, mail, telephone, message, copymessage,  dateMessage, ContactOrigineFromDao);
+		//		contactSI.createContact( Nom, Prenom, mail, telephone, message, copymessage,  contactOrigineId);
 		return "create";
 	}
 

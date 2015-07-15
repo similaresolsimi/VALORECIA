@@ -24,6 +24,7 @@ public class ContactService implements ContactServiceInterface {
 	private ContactDaoInterface contactDao;
 
 	@Override
+	@TransactionAttribute
 	public Contact createContact(String name,String surname,String mail,String telephone,
 			String message,Boolean sendMessage,LocalDateTime dateMessage,ContactOrigine contactOrigine) {
 
@@ -51,7 +52,8 @@ public class ContactService implements ContactServiceInterface {
 	//	}
 
 	@Override
-	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	//	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public ArrayList<Contact> getAllContact() {
 		ArrayList<Contact> result = new ArrayList<>();
 		for (Contact contact : contactDao.findAll()) {
@@ -61,8 +63,9 @@ public class ContactService implements ContactServiceInterface {
 	}
 
 	@Override
-	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public Contact getContact(long contactId) {
+	//	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public Contact getContact(Long contactId) {
 		return contactDao.findById(contactId);
 	}
 

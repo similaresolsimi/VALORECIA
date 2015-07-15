@@ -26,6 +26,7 @@ public class ContactOrigineService implements ContactOrigineServiceInterface {
 	private ContactOrigineDaoInterface contactOrigineDao;
 
 	@Override
+	@TransactionAttribute
 	public ContactOrigine createContactOrigine(Long contactOrigineId,String _contactOrigine) {
 		ContactOrigine contactOrigine = new ContactOrigine(contactOrigineId, _contactOrigine);
 		contactOrigineDao.persist(contactOrigine);
@@ -34,6 +35,7 @@ public class ContactOrigineService implements ContactOrigineServiceInterface {
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	//	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public ArrayList<ContactOrigine> getAllContactOrigine() {
 		ArrayList<ContactOrigine> result = new ArrayList<>();
 		for (ContactOrigine contactOrigine : contactOrigineDao.findAll()) {
@@ -44,7 +46,8 @@ public class ContactOrigineService implements ContactOrigineServiceInterface {
 
 	@Override
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public ContactOrigine getContactOrigine(long contactOrigineId) {
+	//	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public ContactOrigine getContactOrigine(Long contactOrigineId) {
 		return contactOrigineDao.findById(contactOrigineId);
 	}
 
