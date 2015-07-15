@@ -15,7 +15,7 @@ public class Login {
 	
 	public String valide(){
 //		result = myService.authorize(name, pswd);
-		result = myService.authorize(new user(name, pswd));
+		result = myService.authorize(new UserEntity(name, pswd));
 		return result;
 	}
 	

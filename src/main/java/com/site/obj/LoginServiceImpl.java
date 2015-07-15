@@ -11,7 +11,7 @@ public class LoginServiceImpl implements LoginService{
 	}
 
 	@Override
-	public String authorize(user util) {
+	public String authorize(UserEntity util) {
 		// TODO Auto-generated method stub
 		return null;
 	}

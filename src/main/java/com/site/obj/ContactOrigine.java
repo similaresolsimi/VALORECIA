@@ -26,7 +26,7 @@ public class ContactOrigine {
 	@Id
 	@GeneratedValue
 	@Column(unique=true)
-	@XmlAttribute(required = true)
+	//	@XmlAttribute(required = true)
 	private Long contactOrigineId;
 	@XmlAttribute
 	private String contactOrigine;

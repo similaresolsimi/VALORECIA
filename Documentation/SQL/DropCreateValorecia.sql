@@ -1,6 +1,14 @@
 ﻿-- Database: valorecia
 
 
+CREATE DATABASE zobi
+  WITH OWNER = postgres
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       LC_COLLATE = 'French_France.1252'
+       LC_CTYPE = 'French_France.1252'
+       CONNECTION LIMIT = -1;
+       
 DROP DATABASE IF EXISTS valorecia;
 
 CREATE DATABASE valorecia
@@ -18,7 +26,7 @@ COMMENT ON DATABASE valorecia
 DROP TABLE IF EXISTS ContactOrigine;
 
 CREATE TABLE ContactOrigine (
-    contactOrigineId    integer PRIMARY KEY,
+    contactOrigineId     SERIAL PRIMARY KEY,
     contactOrigine      varchar(255) NOT NULL
 );
 
@@ -26,14 +34,28 @@ CREATE TABLE ContactOrigine (
 DROP TABLE IF EXISTS Contact;
 	
 Create Table Contact(
-	ContactId integer PRIMARY KEY ,
+	ContactId SERIAL PRIMARY KEY ,
 	name varchar(255) NOT NULL CHECK (name <> ''),
 	surname varchar(255) NOT NULL CHECK (surname <> ''),
 	mail varchar(255) NOT NULL CHECK (mail <> ''),
 	telephone varchar(255),
 	message varchar(8000) NOT NULL CHECK (message <> ''),
-	sendMessage int Not NULL,
+	copymessage boolean Not NULL,
 	dateMessage timestamp DEFAULT current_timestamp, 
 	contactOrigineId  integer references ContactOrigine
 );
+
+--jeu test
+--insert Contact Origine
+Insert INTO ContactOrigine (contactOrigine) values ('Vous nous connaissiez déjà avant.');
+Insert INTO ContactOrigine (contactOrigine) values ('Une de vos connaissances vous as eguillé vers nous.');
+Insert INTO ContactOrigine (contactOrigine) values ('Vous avez fait une recherche internet');
+
+--insert Contact
+Insert INTO Contact (	name ,	surname ,mail ,telephone ,message ,copymessage ,dateMessage ,contactOrigineId ) 
+values ('FAGEGALTIER','Richard','richardfagegaltier@free.fr','0777793001','Bonjour, je souhaite communiquer avec vous !',true,now(),1);
+
+--test select
+select * from Contact;
+select * from ContactOrigine;
 

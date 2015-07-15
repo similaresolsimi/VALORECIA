@@ -3,5 +3,5 @@ package com.site.obj;
 public interface LoginService {
 
 	String authorize(String name,String pswd);
-	String authorize(user util);
+	String authorize(UserEntity util);
 }
