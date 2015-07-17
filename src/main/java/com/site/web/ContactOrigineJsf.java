@@ -1,5 +1,6 @@
 package com.site.web;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Model;
@@ -9,8 +10,15 @@ import javax.inject.Inject;
 import com.site.obj.ContactOrigine;
 import com.site.obj.ContactOrigineServiceInterface;
 
+//@ApplicationScoped
+//@Named
 @Model
-public class ContactOrigineJsf {
+public class ContactOrigineJsf implements Serializable {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private ContactOrigineServiceInterface ContactOrigineSI;

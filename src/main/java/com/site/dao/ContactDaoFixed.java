@@ -16,6 +16,7 @@ import com.site.obj.Contact;
  * @author carole
  *
  */
+
 @Stateless
 @Alternative
 public class ContactDaoFixed extends DaoFixed <Long, Contact> implements ContactDaoInterface {

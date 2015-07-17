@@ -18,11 +18,19 @@ public class ContactOrigineDaoJpa extends DaoJpa<Long, ContactOrigine> implement
 	 */
 	@Override
 	public ArrayList<Long> getAllContactOrigine() {
+
 		ArrayList<Long> listContactOrigine = new ArrayList<>();
-		for (ContactOrigine contactOrigine : findAll()) {
-			listContactOrigine.add(contactOrigine.getContactOrigineId());
+		try{
+			for (ContactOrigine contactOrigine : findAll()) {
+				listContactOrigine.add(contactOrigine.getContactOrigineId());
+			}
+
+		}	catch(Exception e)
+		{
+			System.out.println("ContactOrigineDaoJpa getAllContactOrigine");
 		}
 		return listContactOrigine;
+
 	}
 
 

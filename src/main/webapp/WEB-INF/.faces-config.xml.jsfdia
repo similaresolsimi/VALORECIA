@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PROCESS model-entity="JSFProcess">
- <PROCESS-ITEM NAME="rules:#createcontact.xhtml"
-  PATH="/createcontact.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#createcontact.xhtml:0" NAME="item"
-   PATH="/createcontact.xhtml" model-entity="JSFProcessItem"/>
+ <PROCESS-ITEM NAME="rules:#test.xhtml" PATH="/test.xhtml"
+  SHAPE="656,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#test.xhtml:0" NAME="item" PATH="/test.xhtml" model-entity="JSFProcessItem"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#testcreatecontact.xhtml"
+  PATH="/testcreatecontact.xhtml" SHAPE="864,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#testcreatecontact.xhtml:0" NAME="item"
+   PATH="/testcreatecontact.xhtml" model-entity="JSFProcessItem"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#resources#tag#ContactRequest.xhtml"
+  PATH="/resources/tag/ContactRequest.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#resources#tag#ContactRequest.xhtml:0"
+   NAME="item" PATH="/resources/tag/ContactRequest.xhtml" model-entity="JSFProcessItem"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#resources#tag#ContactOrigine.xhtml"
+  PATH="/resources/tag/ContactOrigine.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#resources#tag#ContactOrigine.xhtml:0"
+   NAME="item" PATH="/resources/tag/ContactOrigine.xhtml" model-entity="JSFProcessItem"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#resources#tag#menu.xhtml"
+  PATH="/resources/tag/menu.xhtml" SHAPE="448,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#resources#tag#menu.xhtml:0" NAME="item"
+   PATH="/resources/tag/menu.xhtml" model-entity="JSFProcessItem"/>
  </PROCESS-ITEM>
 </PROCESS>

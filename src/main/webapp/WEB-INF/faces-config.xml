@@ -19,8 +19,24 @@
 <faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="         http://xmlns.jcp.org/xml/ns/javaee         http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
  <navigation-rule>
-  <display-name>createcontact.xhtml</display-name>
-  <from-view-id>/createcontact.xhtml</from-view-id>
+  <display-name>ContactRequest.xhtml</display-name>
+  <from-view-id>/resources/tag/ContactRequest.xhtml</from-view-id>
+ </navigation-rule>
+ <navigation-rule>
+  <display-name>/ContactOrigine.xhtml</display-name>
+  <from-view-id>/resources/tag/ContactOrigine.xhtml</from-view-id>
+ </navigation-rule>
+ <navigation-rule>
+  <display-name>ContactRequest.xhtml</display-name>
+  <from-view-id>/resources/tag/menu.xhtml</from-view-id>
+ </navigation-rule>
+ <navigation-rule>
+  <display-name>test.xhtml</display-name>
+  <from-view-id>/test.xhtml</from-view-id>
+ </navigation-rule>
+ <navigation-rule>
+  <display-name>testcreatecontact.xhtml</display-name>
+  <from-view-id>/testcreatecontact.xhtml</from-view-id>
  </navigation-rule>
  <application>
   <resource-bundle>

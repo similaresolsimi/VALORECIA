@@ -10,25 +10,30 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 //import javax.persistence.TableGenerator;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author carole
  *
  */
+//@Table
+//@Model
 @Entity
 @NamedQuery(name="ContactOrigine.findAll", query="SELECT c FROM ContactOrigine c")
+@XmlRootElement
 public class ContactOrigine {
 
 
 	/**
 	 *
 	 */
-	@Id
-	@GeneratedValue
-	@Column(unique=true)
 	//	@XmlAttribute(required = true)
 	//	@GeneratedValue(strategy = "increment")
 	//	@GenericGenerator(parameters = @Parameter(name = "contactOrigineId"))
+	@Id
+	@GeneratedValue
+	@Column(unique=true)
+	@XmlAttribute
 	private Long contactOrigineId;
 	@XmlAttribute
 	private String contactOrigineLabel;

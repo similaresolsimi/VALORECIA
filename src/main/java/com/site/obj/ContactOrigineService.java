@@ -6,8 +6,6 @@ package com.site.obj;
 import java.util.ArrayList;
 
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import com.site.dao.ContactOrigineDaoInterface;
@@ -25,17 +23,17 @@ public class ContactOrigineService implements ContactOrigineServiceInterface {
 	@Inject
 	private ContactOrigineDaoInterface contactOrigineDao;
 
+	//	@TransactionAttribute
 	@Override
-	@TransactionAttribute
 	public ContactOrigine createContactOrigine(Long contactOrigineId,String _contactOrigine) {
 		ContactOrigine contactOrigine = new ContactOrigine(contactOrigineId, _contactOrigine);
 		contactOrigineDao.persist(contactOrigine);
 		return contactOrigine;
 	}
 
-	@Override
-	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	//	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	//	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
 	public ArrayList<ContactOrigine> getAllContactOrigine() {
 		ArrayList<ContactOrigine> result = new ArrayList<>();
 		for (ContactOrigine contactOrigine : contactOrigineDao.findAll()) {
@@ -44,9 +42,9 @@ public class ContactOrigineService implements ContactOrigineServiceInterface {
 		return result;
 	}
 
-	@Override
-	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	//	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	//	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	@Override
 	public ContactOrigine getContactOrigine(Long contactOrigineId) {
 		return contactOrigineDao.findById(contactOrigineId);
 	}

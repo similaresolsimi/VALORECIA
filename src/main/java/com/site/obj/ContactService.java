@@ -7,8 +7,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import com.site.dao.ContactDaoInterface;
@@ -24,7 +22,7 @@ public class ContactService implements ContactServiceInterface {
 	private ContactDaoInterface contactDao;
 
 	@Override
-	@TransactionAttribute
+	//	@TransactionAttribute
 	public Contact createContact(String name,String surname,String mail,String telephone,
 			String message,Boolean sendMessage,LocalDateTime dateMessage,ContactOrigine contactOrigine) {
 
@@ -53,7 +51,7 @@ public class ContactService implements ContactServiceInterface {
 
 	@Override
 	//	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	//	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public ArrayList<Contact> getAllContact() {
 		ArrayList<Contact> result = new ArrayList<>();
 		for (Contact contact : contactDao.findAll()) {
@@ -64,7 +62,7 @@ public class ContactService implements ContactServiceInterface {
 
 	@Override
 	//	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	//	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public Contact getContact(Long contactId) {
 		return contactDao.findById(contactId);
 	}

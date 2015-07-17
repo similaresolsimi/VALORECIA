@@ -11,28 +11,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
-//import javax.persistence.TableGenerator;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+//import javax.persistence.TableGenerator;
 /**
  * @author carole
  *
  */
+//@Table
+//@Model
+//
+
 @Entity(name="Contact")
 @NamedQuery(name="Contact.findAll", query="SELECT a FROM Contact a")
-@XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
 public class Contact {
 
+	//	@XmlAttribute(required = true)
 	@Id //Clé primaire
 	@GeneratedValue
-	//	@XmlAttribute(required = true)
 	@Column(unique=true)
+	@XmlAttribute
 	private Long ContactId;
-	@XmlAttribute(required = true)
+	//	@XmlAttribute(required = true)
+	@XmlAttribute
 	private String nom;
 	@XmlAttribute
 	private String prenom;
@@ -47,8 +49,9 @@ public class Contact {
 	@XmlAttribute
 	private LocalDateTime dateMessage;
 	//	@ManyToOne
+	//		@XmlElement(required = true)
 	@OneToOne
-	@XmlElement(required = true)
+	@XmlAttribute
 	private ContactOrigine contactOrigine;
 	//	@XmlAttribute
 	//	private Long ContactOrigineId;

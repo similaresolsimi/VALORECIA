@@ -16,6 +16,7 @@ import com.site.obj.ContactOrigine;
  * @author carole
  *
  */
+
 @Stateless
 @Alternative
 public class ContactOrigineDaoFixed extends DaoFixed <Long, ContactOrigine> implements ContactOrigineDaoInterface{

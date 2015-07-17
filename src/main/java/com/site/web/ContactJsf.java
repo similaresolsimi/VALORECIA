@@ -1,5 +1,6 @@
 package com.site.web;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -17,10 +18,15 @@ import com.site.obj.ContactOrigineServiceInterface;
 import com.site.obj.ContactServiceInterface;
 
 
-
+//@ApplicationScoped
+//@Named
 @Model
-public class ContactJsf {
+public class ContactJsf implements Serializable {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	@Inject
 	private ContactServiceInterface contactSI;
 	@Inject
