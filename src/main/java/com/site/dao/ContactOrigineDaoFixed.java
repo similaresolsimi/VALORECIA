@@ -10,7 +10,8 @@ import java.util.HashMap;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 
-import com.site.obj.ContactOrigine;
+import com.site.obj.Contactorigine;
+
 
 /**
  * @author carole
@@ -19,46 +20,46 @@ import com.site.obj.ContactOrigine;
 
 @Stateless
 @Alternative
-public class ContactOrigineDaoFixed extends DaoFixed <Long, ContactOrigine> implements ContactOrigineDaoInterface{
+public class ContactOrigineDaoFixed extends DaoFixed <Long, Contactorigine> implements ContactOrigineDaoInterface{
 
-	private static HashMap<Long, ContactOrigine> listContactOrigine;
+	private static HashMap<Long, Contactorigine> listContactOrigine;
 
 	/**
 	 *
 	 */
 	public ContactOrigineDaoFixed() {
 		if (ContactOrigineDaoFixed.listContactOrigine == null) {
-			ContactOrigineDaoFixed.listContactOrigine = new HashMap<Long, ContactOrigine>();
+			ContactOrigineDaoFixed.listContactOrigine = new HashMap<Long, Contactorigine>();
 		}
 	}
 
 	@Override
-	public void persist(ContactOrigine entity) {
-		ContactOrigineDaoFixed.listContactOrigine.put(entity.getContactOrigineId(), entity);
+	public void persist(Contactorigine entity) {
+		ContactOrigineDaoFixed.listContactOrigine.put((long) entity.getContactorigineid(), entity);
 
 	}
 
 	@Override
-	public void remove(ContactOrigine entity) {
+	public void remove(Contactorigine entity) {
 		ContactOrigineDaoFixed.listContactOrigine.remove(entity);
 
 	}
 
 	@Override
-	public ContactOrigine findById(Long id) {
+	public Contactorigine findById(Long id) {
 		return ContactOrigineDaoFixed.listContactOrigine.get(id);
 	}
 
 	@Override
-	public  Collection<ContactOrigine> findAll() {
+	public  Collection<Contactorigine> findAll() {
 		return ContactOrigineDaoFixed.listContactOrigine.values();
 	}
 
 	@Override
 	public ArrayList<Long> getAllContactOrigine() {
 		ArrayList<Long> listContactOrigine = new ArrayList<>();
-		for (ContactOrigine contactOrigine : findAll()) {
-			listContactOrigine.add(contactOrigine.getContactOrigineId());
+		for (Contactorigine contactOrigine : findAll()) {
+			listContactOrigine.add((long) contactOrigine.getContactorigineid());
 		}
 		return listContactOrigine;
 	}

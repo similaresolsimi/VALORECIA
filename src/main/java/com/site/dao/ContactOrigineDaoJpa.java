@@ -5,13 +5,13 @@ package com.site.dao;
 
 import java.util.ArrayList;
 
-import com.site.obj.ContactOrigine;
+import com.site.obj.Contactorigine;
 
 /**
  * @author carole
  *
  */
-public class ContactOrigineDaoJpa extends DaoJpa<Long, ContactOrigine> implements ContactOrigineDaoInterface{
+public class ContactOrigineDaoJpa extends DaoJpa<Long, Contactorigine> implements ContactOrigineDaoInterface{
 
 	/**
 	 *
@@ -21,8 +21,8 @@ public class ContactOrigineDaoJpa extends DaoJpa<Long, ContactOrigine> implement
 
 		ArrayList<Long> listContactOrigine = new ArrayList<>();
 		try{
-			for (ContactOrigine contactOrigine : findAll()) {
-				listContactOrigine.add(contactOrigine.getContactOrigineId());
+			for (Contactorigine contactorigine : findAll()) {
+				listContactOrigine.add((long) contactorigine.getContactorigineid());
 			}
 
 		}	catch(Exception e)

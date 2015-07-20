@@ -34,7 +34,7 @@ public class ContactDaoFixed extends DaoFixed <Long, Contact> implements Contact
 
 	@Override
 	public void persist(Contact entity) {
-		ContactDaoFixed.listContacts.put(entity.getContactId(), entity);
+		ContactDaoFixed.listContacts.put((long) entity.getContactid(), entity);
 
 	}
 
@@ -58,7 +58,7 @@ public class ContactDaoFixed extends DaoFixed <Long, Contact> implements Contact
 	public ArrayList<Long> getAllContact() {
 		ArrayList<Long> listContacts = new ArrayList<>();
 		for (Contact contact : findAll()) {
-			listContacts.add(contact.getContactId());
+			listContacts.add((long) contact.getContactid());
 		}
 		return listContacts;
 	}

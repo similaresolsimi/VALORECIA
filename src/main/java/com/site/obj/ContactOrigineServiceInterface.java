@@ -14,17 +14,17 @@ public interface ContactOrigineServiceInterface {
 	/**
 	 *
 	 */
-	public ContactOrigine createContactOrigine(Long contactOrigineId, String contactOrigine) ;
+	public Contactorigine createContactOrigine(Long contactOrigineId, String contactOrigine) ;
 	/**
-	 * @return list of all ContactOrigine request.
+	 * @return list of all ContactOrigine1 request.
 	 *
 	 */
-	public ArrayList<ContactOrigine> getAllContactOrigine();
+	public ArrayList<Contactorigine> getAllContactOrigine();
 
 	/**
-	 * @param idContactOrigine a long the ContactOrigine id.
+	 * @param idContactOrigine a long the ContactOrigine1 id.
 	 * @return the ContactOrigineId
 	 */
-	public ContactOrigine getContactOrigine(Long ContactOrigineId);
+	public Contactorigine getContactOrigine(Long ContactOrigineId);
 
 }

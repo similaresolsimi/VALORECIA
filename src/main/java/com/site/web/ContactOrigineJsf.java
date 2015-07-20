@@ -7,8 +7,8 @@ import javax.enterprise.inject.Model;
 import javax.faces.component.html.HtmlDataTable;
 import javax.inject.Inject;
 
-import com.site.obj.ContactOrigine;
 import com.site.obj.ContactOrigineServiceInterface;
+import com.site.obj.Contactorigine;
 
 //@ApplicationScoped
 //@Named
@@ -61,7 +61,7 @@ public class ContactOrigineJsf implements Serializable {
 	/**
 	 * @return a list of all Species
 	 */
-	public ArrayList<ContactOrigine> getAllContactOrigine() {
+	public ArrayList<Contactorigine> getAllContactOrigine() {
 		return ContactOrigineSI.getAllContactOrigine();
 	}
 
@@ -73,10 +73,10 @@ public class ContactOrigineJsf implements Serializable {
 	 */
 	public String editContactOrigine() {
 		// Get selected animal to be displayed.
-		ContactOrigine contactOrigineFromList = (ContactOrigine) dataTable.getRowData();
+		Contactorigine contactOrigineFromList = (Contactorigine) dataTable.getRowData();
 		if (contactOrigineFromList != null) {
 			// Set properties to be displayed.
-			setContactOrigineLabel(contactOrigineFromList.getContactOrigineLabel());
+			setContactOrigineLabel(contactOrigineFromList.getContactoriginelabel());
 
 		}
 		// Navigation case.

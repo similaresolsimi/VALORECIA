@@ -17,7 +17,7 @@ public class ContactDaoJpa extends DaoJpa<Long, Contact> implements ContactDaoIn
 	public ArrayList<Long> getAllContact() {
 		ArrayList<Long> listContacts = new ArrayList<>();
 		for (Contact contact : findAll()) {
-			listContacts.add(contact.getContactId());
+			listContacts.add((long) contact.getContactid());
 		}
 		return listContacts;
 	}

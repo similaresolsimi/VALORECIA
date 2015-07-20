@@ -2,8 +2,8 @@
  *
  */
 package com.site.obj;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * @author carole
@@ -11,20 +11,20 @@ import java.util.ArrayList;
  */
 public interface ContactServiceInterface {
 
-	public Contact createContact(String name,
-			String surname,String mail,String telephone,String message,
-			Boolean sendMessage,LocalDateTime dateMessage,ContactOrigine contactOrigine);
+	public Contact createContact(String nom, String prenom, String mail,
+			String telephone, String message, Boolean copymessage,
+			Date dateMessage, Contactorigine contactorigine);
 
-	//	public Contact createContact(String name,
+	//	public Contact1 createContact(String name,
 	//			String surname,String mail,String telephone,String message,
-	//			Boolean sendMessage,ContactOrigine contactOrigine);
+	//			Boolean sendMessage,ContactOrigine1 contactOrigine);
 
-	//	public Contact createContact(String name,
+	//	public Contact1 createContact(String name,
 	//			String surname,String mail,String telephone,String message,
 	//			Boolean sendMessage,Long contactOrigineId );
 
 	/**
-	 * @return list of all Contact request.
+	 * @return list of all Contact1 request.
 	 *
 	 */
 	public ArrayList<Contact> getAllContact();
@@ -34,5 +34,8 @@ public interface ContactServiceInterface {
 	 * @return the ContactId
 	 */
 	public Contact getContact(Long ContactId);
+
+
+
 
 }

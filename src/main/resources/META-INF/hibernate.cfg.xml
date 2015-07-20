@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
                                          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
- <session-factory name="">
+ <session-factory name="primary">
   <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
   <property name="hibernate.connection.password">admin</property>
   <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/valorecia</property>
@@ -20,7 +20,7 @@
    <property name="hibernate.jdbc.use_get_generated_keys">true</property> 
    <property name="hibernate.jdbc.use_scrollable_resultset">true</property> 
    <property name="hibernate.jndi">java:jboss/datasources/valoreciaDS</property> 
-   <property name="hibernate.query.factory_class">com.site.obj.Contact</property> 
+   <property name="hibernate.query.factory_class">com.site.obj.Contact1</property> 
    <property name="hibernate.query.jpaql_strict_compliance">true</property> 
    <property name="hibernate.query.startup_check">true</property> -->
   <property name="hibernate.transaction.auto_close_session">true</property>

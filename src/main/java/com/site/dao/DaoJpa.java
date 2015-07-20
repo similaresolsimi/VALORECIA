@@ -26,7 +26,7 @@ public abstract class DaoJpa<K, E> implements Dao<K, E> {
 	@SuppressWarnings("unchecked")
 	public DaoJpa() {
 		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
-		//entityManager=Persistence.createEntityManagerFactory("primary").createEntityManager();
+		//		entityManager=Persistence.createEntityManagerFactory("primary").createEntityManager();
 		this.entityClass = (Class<E>) genericSuperclass.getActualTypeArguments()[1];
 	}
 

@@ -3,8 +3,8 @@
  */
 package com.site.obj;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -21,30 +21,33 @@ public class ContactService implements ContactServiceInterface {
 	@Inject
 	private ContactDaoInterface contactDao;
 
-	@Override
-	//	@TransactionAttribute
-	public Contact createContact(String name,String surname,String mail,String telephone,
-			String message,Boolean sendMessage,LocalDateTime dateMessage,ContactOrigine contactOrigine) {
 
-		Contact contact = new Contact( name, surname, mail, telephone, message,	sendMessage, dateMessage, contactOrigine);
+	//	@TransactionAttribute
+	@Override
+	public Contact createContact(String nom, String prenom, String mail,
+			String telephone, String message, Boolean copymessage,
+			Date dateMessage, Contactorigine contactorigine) {
+		Contact contact = new Contact(  nom,  prenom,  mail, telephone,
+				message,  copymessage, dateMessage,  contactorigine);
 		contactDao.persist(contact);
 		return contact;
+
 	}
 
 	//	@Override
-	//	public Contact createContact(String name,String surname,String mail,String telephone,String message,
-	//			Boolean sendMessage,ContactOrigine contactOrigine) {
+	//	public Contact1 createContact(String name,String surname,String mail,String telephone,String message,
+	//			Boolean sendMessage,ContactOrigine1 contactOrigine) {
 	//
-	//		Contact contact = new Contact( name, surname, mail, telephone, message,	sendMessage, contactOrigine);
+	//		Contact1 contact = new Contact1( name, surname, mail, telephone, message,	sendMessage, contactOrigine);
 	//		contactDao.persist(contact);
 	//		return contact;
 	//	}
 	//
 	//	@Override
-	//	public Contact createContact(String name,String surname,String mail,String telephone,String message,
+	//	public Contact1 createContact(String name,String surname,String mail,String telephone,String message,
 	//			Boolean sendMessage,Long contactOrigineId) {
 	//
-	//		Contact contact = new Contact( name, surname, mail, telephone, message,	sendMessage, contactOrigineId);
+	//		Contact1 contact = new Contact1( name, surname, mail, telephone, message,	sendMessage, contactOrigineId);
 	//		contactDao.persist(contact);
 	//		return contact;
 	//	}
@@ -75,5 +78,7 @@ public class ContactService implements ContactServiceInterface {
 	void setContactDao(ContactDaoInterface contactDao) {
 		this.contactDao = contactDao;
 	}
+
+
 
 }

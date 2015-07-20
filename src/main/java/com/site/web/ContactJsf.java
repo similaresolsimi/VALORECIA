@@ -1,8 +1,8 @@
 package com.site.web;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
@@ -13,9 +13,9 @@ import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 
 import com.site.obj.Contact;
-import com.site.obj.ContactOrigine;
 import com.site.obj.ContactOrigineServiceInterface;
 import com.site.obj.ContactServiceInterface;
+import com.site.obj.Contactorigine;
 
 
 //@ApplicationScoped
@@ -39,9 +39,10 @@ public class ContactJsf implements Serializable {
 	private String telephone;
 	private String message;
 	private Boolean copymessage;
-	private LocalDateTime dateMessage;
-	private ContactOrigine contactOrigine;
+	private Date dateMessage;
+	private Contactorigine contactorigine;
 	private Long contactOrigineId;
+
 	/**
 	 * @return the contactSI
 	 */
@@ -143,30 +144,30 @@ public class ContactJsf implements Serializable {
 	/**
 	 * @return the dateMessage
 	 */
-	public LocalDateTime getDateMessage() {
-		dateMessage = LocalDateTime.now();
+	public Date getDateMessage() {
+		dateMessage =Date.from(null) ;
 		return dateMessage;
 	}
 
 	/**
-	 * @param dateMessage the dateMessage to set
+	 * @param date the dateMessage to set
 	 */
-	public void setDateMessage(LocalDateTime dateMessage) {
-		this.dateMessage = dateMessage;
+	public void setDateMessage(Date date) {
+		this.dateMessage = date;
 	}
 
 	/**
-	 * @return the contactOrigine
+	 * @return the contactorigine
 	 */
-	public ContactOrigine getContactOrigine() {
-		return contactOrigine;
+	public Contactorigine getContactOrigine() {
+		return contactorigine;
 	}
 
 	/**
-	 * @param contactOrigine the contactOrigine to set
+	 * @param contactorigine the contactorigine to set
 	 */
-	public void setContactOrigine(ContactOrigine contactOrigine) {
-		this.contactOrigine = contactOrigine;
+	public void setContactOrigine(Contactorigine contactorigine) {
+		this.contactorigine = contactorigine;
 	}
 
 	/**
@@ -177,10 +178,10 @@ public class ContactJsf implements Serializable {
 	}
 
 	/**
-	 * @param contactOrigineId the contactOrigineId to set
+	 * @param i the contactOrigineId to set
 	 */
-	public void setContactOrigineId(Long contactOrigineId) {
-		this.contactOrigineId = contactOrigineId;
+	public void setContactOrigineId(int i) {
+		this.contactOrigineId = (long) i;
 	}
 
 	// Managed Backing Bean
@@ -199,9 +200,9 @@ public class ContactJsf implements Serializable {
 			setMail(contactFromList.getMail());
 			setTelephone(contactFromList.getTelephone());
 			setMessage(contactFromList.getMessage());
-			setcopymessage(contactFromList.getcopymessage());
-			setDateMessage(contactFromList.getDateMessage());
-			setContactOrigineId(contactFromList.getContactOrigine().getContactOrigineId());
+			setcopymessage(contactFromList.getCopymessage());
+			setDateMessage(contactFromList.getDatemessage());
+			setContactOrigineId(contactFromList.getContactorigine().getContactorigineid());
 			//			setContactOrigineId(contactFromList.getContactOrigineId());
 		}
 		// Navigation case.
@@ -238,7 +239,7 @@ public class ContactJsf implements Serializable {
 	}
 
 	public String create() {
-		ContactOrigine ContactOrigineFromDao = contactOrigineSI.getContactOrigine(contactOrigineId);
+		Contactorigine ContactOrigineFromDao = contactOrigineSI.getContactOrigine(contactOrigineId);
 		contactSI.createContact( Nom, Prenom, mail, telephone, message, copymessage,  dateMessage, ContactOrigineFromDao);
 		//		contactSI.createContact( Nom, Prenom, mail, telephone, message, copymessage,  contactOrigineId);
 		return "create";
