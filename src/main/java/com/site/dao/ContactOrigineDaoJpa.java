@@ -20,8 +20,10 @@ public class ContactOrigineDaoJpa extends DaoJpa<Long, Contactorigine> implement
 	public ArrayList<Long> getAllContactOrigine() {
 
 		ArrayList<Long> listContactOrigine = new ArrayList<>();
+
 		try{
-			for (Contactorigine contactorigine : findAll()) {
+			for (Contactorigine contactorigine : findAll())
+			{
 				listContactOrigine.add((long) contactorigine.getContactorigineid());
 			}
 

@@ -22,13 +22,13 @@ public class ContactOrigineService implements ContactOrigineServiceInterface {
 	 *
 	 */
 	@Inject
-	private ContactOrigineDaoInterface contactOrigineDao;
+	private ContactOrigineDaoInterface contactOrigineDaoI;
 
 	@TransactionAttribute
 	@Override
-	public Contactorigine createContactOrigine(Long contactOrigineId,String _contactOrigine) {
-		Contactorigine ContactOrigine = new Contactorigine(contactOrigineId, _contactOrigine);
-		contactOrigineDao.persist(ContactOrigine);
+	public Contactorigine createContactOrigine(int contactOrigineId,String contactoriginelabel) {
+		Contactorigine ContactOrigine = new Contactorigine(contactOrigineId, contactoriginelabel);
+		contactOrigineDaoI.persist(ContactOrigine);
 		return ContactOrigine;
 	}
 
@@ -38,8 +38,13 @@ public class ContactOrigineService implements ContactOrigineServiceInterface {
 	@TransactionAttribute
 	public ArrayList<Contactorigine> getAllContactOrigine() {
 		ArrayList<Contactorigine> result = new ArrayList<>();
-		for (Contactorigine ContactOrigine : contactOrigineDao.findAll()) {
-			result.add(ContactOrigine);
+		try{
+			for (Contactorigine ContactOrigine : contactOrigineDaoI.findAll()) {
+				result.add(ContactOrigine);
+			}
+		}	catch(Exception e)
+		{
+			System.out.println("ContactDaoJpa getAllContact");
 		}
 		return result;
 	}
@@ -49,7 +54,7 @@ public class ContactOrigineService implements ContactOrigineServiceInterface {
 	@Override
 	@TransactionAttribute
 	public Contactorigine getContactOrigine(Long contactOrigineId) {
-		return contactOrigineDao.findById(contactOrigineId);
+		return contactOrigineDaoI.findById(contactOrigineId);
 	}
 
 }

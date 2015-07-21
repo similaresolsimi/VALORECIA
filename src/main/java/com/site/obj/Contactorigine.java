@@ -1,14 +1,9 @@
 package com.site.obj;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,9 +18,9 @@ public class Contactorigine implements java.io.Serializable {
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
+
 	private int contactorigineid;
 	private String contactoriginelabel;
-	private Set<Contact> contacts = new HashSet<Contact>(0);
 
 	public Contactorigine() {
 	}
@@ -34,16 +29,11 @@ public class Contactorigine implements java.io.Serializable {
 		this.contactorigineid = contactorigineid;
 	}
 
-	public Contactorigine(int contactorigineid, String contactoriginelabel,
-			Set<Contact> contacts) {
+	public Contactorigine(int contactorigineid, String contactoriginelabel) {
 		this.contactorigineid = contactorigineid;
 		this.contactoriginelabel = contactoriginelabel;
-		this.contacts = contacts;
 	}
 
-	public Contactorigine(Long contactOrigineId2, String _contactOrigine) {
-		// TODO Auto-generated constructor stub
-	}
 
 	@Id
 	@Column(name = "contactorigineid", unique = true, nullable = false)
@@ -62,15 +52,6 @@ public class Contactorigine implements java.io.Serializable {
 
 	public void setContactoriginelabel(String contactoriginelabel) {
 		this.contactoriginelabel = contactoriginelabel;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "contactorigine")
-	public Set<Contact> getContacts() {
-		return this.contacts;
-	}
-
-	public void setContacts(Set<Contact> contacts) {
-		this.contacts = contacts;
 	}
 
 	@Override

@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.annotation.ManagedBean;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlDataTable;
 import javax.faces.context.FacesContext;
@@ -21,18 +23,21 @@ import com.site.obj.Contactorigine;
 //@ApplicationScoped
 //@Named
 @Model
+@ManagedBean
+@SessionScoped
 public class ContactJsf implements Serializable {
 
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
+
 	@Inject
 	private ContactServiceInterface contactSI;
 	@Inject
 	private ContactOrigineServiceInterface contactOrigineSI;
 
-	//	private Long ContactId;
+	private Long ContactId;
 	private String Nom;
 	private String Prenom;
 	private String mail;
@@ -41,7 +46,7 @@ public class ContactJsf implements Serializable {
 	private Boolean copymessage;
 	private Date dateMessage;
 	private Contactorigine contactorigine;
-	private Long contactOrigineId;
+	private int contactOrigineId;
 
 	/**
 	 * @return the contactSI
@@ -173,15 +178,15 @@ public class ContactJsf implements Serializable {
 	/**
 	 * @return the contactOrigineId
 	 */
-	public Long getContactOrigineId() {
+	public int getContactOrigineId() {
 		return contactOrigineId;
 	}
 
 	/**
 	 * @param i the contactOrigineId to set
 	 */
-	public void setContactOrigineId(int i) {
-		this.contactOrigineId = (long) i;
+	public void setContactOrigineId(int contactOrigineid) {
+		this.contactOrigineId =  contactOrigineid;
 	}
 
 	// Managed Backing Bean
@@ -204,6 +209,7 @@ public class ContactJsf implements Serializable {
 			setDateMessage(contactFromList.getDatemessage());
 			setContactOrigineId(contactFromList.getContactorigine().getContactorigineid());
 			//			setContactOrigineId(contactFromList.getContactOrigineId());
+			setContactOrigine(contactorigine);
 		}
 		// Navigation case.
 		return "contact";
@@ -242,6 +248,7 @@ public class ContactJsf implements Serializable {
 		Contactorigine ContactOrigineFromDao = contactOrigineSI.getContactOrigine(contactOrigineId);
 		contactSI.createContact( Nom, Prenom, mail, telephone, message, copymessage,  dateMessage, ContactOrigineFromDao);
 		//		contactSI.createContact( Nom, Prenom, mail, telephone, message, copymessage,  contactOrigineId);
+		contactSI.createContact( Nom, Prenom, mail, telephone, message, copymessage,  dateMessage, contactorigine);
 		return "create";
 	}
 
@@ -257,6 +264,20 @@ public class ContactJsf implements Serializable {
 	 */
 	public void setDataTable(HtmlDataTable dataTable) {
 		this.dataTable = dataTable;
+	}
+
+	/**
+	 * @return the contactId
+	 */
+	public Long getContactId() {
+		return ContactId;
+	}
+
+	/**
+	 * @param contactId the contactId to set
+	 */
+	public void setContactId(Long contactId) {
+		ContactId = contactId;
 	}
 
 }

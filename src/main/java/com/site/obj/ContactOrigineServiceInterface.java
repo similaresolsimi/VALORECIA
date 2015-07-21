@@ -14,7 +14,7 @@ public interface ContactOrigineServiceInterface {
 	/**
 	 *
 	 */
-	public Contactorigine createContactOrigine(Long contactOrigineId, String contactOrigine) ;
+	public Contactorigine createContactOrigine(int contactOrigineId, String contactOrigine) ;
 	/**
 	 * @return list of all ContactOrigine1 request.
 	 *
@@ -25,6 +25,6 @@ public interface ContactOrigineServiceInterface {
 	 * @param idContactOrigine a long the ContactOrigine1 id.
 	 * @return the ContactOrigineId
 	 */
-	public Contactorigine getContactOrigine(Long ContactOrigineId);
+	public Contactorigine getContactOrigine(int contactOrigineId);
 
 }

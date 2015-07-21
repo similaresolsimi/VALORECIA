@@ -58,8 +58,13 @@ public class ContactOrigineDaoFixed extends DaoFixed <Long, Contactorigine> impl
 	@Override
 	public ArrayList<Long> getAllContactOrigine() {
 		ArrayList<Long> listContactOrigine = new ArrayList<>();
-		for (Contactorigine contactOrigine : findAll()) {
-			listContactOrigine.add((long) contactOrigine.getContactorigineid());
+		try{
+			for (Contactorigine contactOrigine : findAll()) {
+				listContactOrigine.add((long) contactOrigine.getContactorigineid());
+			}
+		}	catch(Exception e)
+		{
+			System.out.println("ContactOrigineDaoJpa getAllContactOrigine");
 		}
 		return listContactOrigine;
 	}

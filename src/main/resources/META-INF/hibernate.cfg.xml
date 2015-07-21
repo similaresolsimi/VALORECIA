@@ -2,31 +2,33 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
                                          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
- <session-factory name="primary">
-  <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+ <session-factory name="hibernateFactory">
+  <property name="hibernate.connection.driver_class">org.postgresql</property>
   <property name="hibernate.connection.password">admin</property>
-  <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/valorecia</property>
+  <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/valorecia;create=true</property>
   <property name="hibernate.connection.username">postgres</property>
   <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
   <property name="hibernate.show_sql">true</property>
   <property name="hibernate.hbm2ddl.auto">update</property>
-  <property name="hibernate.connection.autocommit">true</property>
-  <!--   <property name="hibernate.connection.datasource">valorecia</property> -->
+<!--   <property name="hibernate.connection.autocommit">true</property> -->
   <property name="hibernate.connection.release_mode">auto</property>
   <property name="hibernate.use_sql_comments">true</property>
   <property name="hibernate.format_sql">true</property>
-  <!--   <property name="hibernate.order_inserts">true</property> 
-   <property name="hibernate.order_updates">true</property> 
+  <property name="hibernate.transaction.auto_close_session">true</property>
+<!--   <property name="hibernate.transaction.flush_before_completion">true</property> -->
+   <!--   <property name="hibernate.connection.datasource">valorecia</property> -->
+  <!--   <property name="hibernate.order_inserts">true</property> -->
+<!--    <property name="hibernate.order_updates">true</property>  -->
    <property name="hibernate.jdbc.use_get_generated_keys">true</property> 
    <property name="hibernate.jdbc.use_scrollable_resultset">true</property> 
-   <property name="hibernate.jndi">java:jboss/datasources/valoreciaDS</property> 
-   <property name="hibernate.query.factory_class">com.site.obj.Contact1</property> 
-   <property name="hibernate.query.jpaql_strict_compliance">true</property> 
-   <property name="hibernate.query.startup_check">true</property> -->
-  <property name="hibernate.transaction.auto_close_session">true</property>
-  <property name="hibernate.transaction.flush_before_completion">true</property>
-  <!--   <property name="hibernate.default_catalog">pg_catalog</property> 
-   <property name="hibernate.connection.datasource">java:jboss/datasources/valoreciaDS</property> 
-   <property name="hibernate.connection">jdbc:h2:mem:valorecia;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</property> -->
+<!--    <property name="hibernate.jndi">java:jboss/datasources/valoreciaDS</property>  -->
+<!--    <property name="hibernate.query.factory_class">com.site.obj.Contact</property> -->
+<!--     <property name="hibernate.query.factory_class">com.site.obj.Contactorigine</property>  -->
+   <property name="hibernate.query.jpaql_strict_compliance">false</property> 
+   <property name="hibernate.query.startup_check">true</property> 
+ 
+<!--     <property name="hibernate.default_catalog">pg_catalog</property>  -->
+<!--    <property name="hibernate.connection.datasource">java:jboss/datasources/valoreciaDS</property>  -->
+<!--    <property name="hibernate.connection">jdbc:h2:mem:valorecia;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</property> -->
  </session-factory>
 </hibernate-configuration>

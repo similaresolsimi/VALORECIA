@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.enterprise.inject.Model;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.component.html.HtmlDataTable;
 import javax.inject.Inject;
 
@@ -13,6 +15,8 @@ import com.site.obj.Contactorigine;
 //@ApplicationScoped
 //@Named
 @Model
+@ManagedBean
+@SessionScoped
 public class ContactOrigineJsf implements Serializable {
 
 	/**
@@ -23,6 +27,7 @@ public class ContactOrigineJsf implements Serializable {
 	@Inject
 	private ContactOrigineServiceInterface ContactOrigineSI;
 
+	private int contactorigineid;
 	private String contactOrigineLabel;
 
 
@@ -81,5 +86,21 @@ public class ContactOrigineJsf implements Serializable {
 		}
 		// Navigation case.
 		return "contactOrigine";
+	}
+
+
+	/**
+	 * @return the contactorigineid
+	 */
+	public int getContactorigineid() {
+		return contactorigineid;
+	}
+
+
+	/**
+	 * @param contactorigineid the contactorigineid to set
+	 */
+	public void setContactorigineid(int contactorigineid) {
+		this.contactorigineid = contactorigineid;
 	}
 }

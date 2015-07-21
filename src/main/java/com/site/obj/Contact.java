@@ -9,8 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,7 +28,6 @@ public class Contact implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private int contactid;
-	private Contactorigine contactorigine;
 	private String nom;
 	private String prenom;
 	private String mail;
@@ -36,6 +35,7 @@ public class Contact implements java.io.Serializable {
 	private String message;
 	private Boolean copymessage;
 	private Date datemessage;
+	private Contactorigine contactorigine;
 
 	public Contact() {
 	}
@@ -81,8 +81,8 @@ public class Contact implements java.io.Serializable {
 		this.contactid = contactid;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "contactorigine_contactorigineid")
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "contactorigineid")
 	public Contactorigine getContactorigine() {
 		return this.contactorigine;
 	}

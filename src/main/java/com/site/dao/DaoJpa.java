@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+
 /**
  * @author humanbooster
  *
@@ -18,16 +19,33 @@ public abstract class DaoJpa<K, E> implements Dao<K, E> {
 
 	protected Class<E> entityClass;
 
-	//
+
 	@Inject
 	@PersistenceContext
-	protected EntityManager entityManager;
+	protected  EntityManager entityManager;
+
+
+	//
+	//	private  EntityManagerFactory fact= Persistence.createEntityManagerFactory("primary");
+	//
+	//	//	@Produces
+	//	@Inject
+	//	@PersistenceContext
+	//	private EntityManager entityManager =fact.createEntityManager();;
 
 	@SuppressWarnings("unchecked")
 	public DaoJpa() {
-		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
-		//		entityManager=Persistence.createEntityManagerFactory("primary").createEntityManager();
-		this.entityClass = (Class<E>) genericSuperclass.getActualTypeArguments()[1];
+
+		try{
+			ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
+			//			if(entityManager==null){
+			//				entityManager=Persistence.createEntityManagerFactory("primary").createEntityManager();
+			//			}
+			this.entityClass = (Class<E>) genericSuperclass.getActualTypeArguments()[1];
+		}	catch(Exception e)
+		{
+			System.out.println("ContactDaoJpa getAllContact");
+		}
 	}
 
 	/**
@@ -65,7 +83,17 @@ public abstract class DaoJpa<K, E> implements Dao<K, E> {
 	@Override
 	@SuppressWarnings("unchecked")
 	public Collection<E> findAll() {
-		return entityManager.createNamedQuery(entityClass.getSimpleName() + ".findAll").getResultList();
+
+		Collection<E> ret = null;
+		try {
+
+			ret= entityManager.createNamedQuery(entityClass.getSimpleName() + ".findAll").getResultList();
+
+		} catch (Exception e) {
+			System.out.println("ContactOrigineDaoJpa getAllContactOrigine");
+		}
+
+		return ret;
 	}
 
 }
